@@ -1,21 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { MDBContainer, MDBCard, MDBCardBody} from "mdb-react-ui-kit";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import SideBar from "../components/SideBar";
 
-import {
-    MDBContainer,
-    MDBCard,
-    MDBCardBody,
-} from "mdb-react-ui-kit";
-import SideBar from "../components/SideBar"
-
-function AdminNotification() {
-
+function AdminRequestSchedSystem() {
     const formStyle = {
         fontFamily: "Arial",
     };
+
     return (
         <form style={formStyle}>
-            <nav
+           <nav
                 className="navbar navbar-expand-lg navbar-dark bg-dark"
                 style={{ height: "65px" }}
             >
@@ -75,26 +72,26 @@ function AdminNotification() {
                     <MDBContainer className="my-5 py-5">
                         <MDBCard>
                             <MDBCardBody>
-                                <div style={{ backgroundColor: "skyblue", padding: "10px", marginBottom: "20px" }}>
-                                    <h2 style={{ textAlign: "center", margin: 0, color: "white" }}>Notifications</h2>
-                                </div>
-
                                 
-                                <div style={{ marginBottom: "20px", padding: "10px", backgroundColor: "#D9D9D9" }}>
-                                    <h3 style={{ color: "#000000", marginBottom: "10px" }}>Notification 1</h3>
-                                    <p style={{ color: "#000000" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non hendrerit nisl, nec dignissim mauris.</p>
+                            <div style={{ marginTop: "20px", display: "flex", alignItems: "center" }}>
+                                    <span style={{ flex: 1 }}>
+                                        Create & View Team
+                                    </span>
+                                    <Link to="/AdminCreateNewTeam">
+                                        <FontAwesomeIcon icon={faChevronRight} />
+                                    </Link>
                                 </div>
-
-                                <div className="notification" style={{ marginBottom: "20px", padding: "10px", backgroundColor: "#D9D9D9" }}>
-                                    <h3 style={{ color: "#000000", marginBottom: "10px" }}>Notification 2</h3>
-                                    <p style={{ color: "#000000" }}>Sed feugiat, sapien ut fringilla iaculis, metus lacus placerat ipsum.</p>
+                                
+                                {/* Create Schedule */}
+                                <div style={{ marginTop: "20px", display: "flex", alignItems: "center" }}>
+                                    <span style={{ flex: 1 }}>
+                                        Create Schedule
+                                    </span>
+                                    <Link to="/AdminCreateSched">
+                                        <FontAwesomeIcon icon={faChevronRight} />
+                                    </Link>
                                 </div>
-
-                                <div style={{ marginBottom: "20px", padding: "10px", marginLeft: "900px" }}>
-                                <Link to="/AdminOfficerRequest"> <h4 style={{ color: "#000000" }}> <img src="/request.png" alt="Request" tyle={{ height: "30px", width: "30px", marginRight: "20px" }}/> Officer Request.</h4></Link>
-                                </div>
-
-
+                                <div style={{marginTop:'-10px',marginLeft: "700px", height: "500px", width: "500px", background: `url('/calBack.png')`, filter: "blur(5px)" }} />
                             </MDBCardBody>
                         </MDBCard>
                     </MDBContainer>
@@ -104,4 +101,5 @@ function AdminNotification() {
     );
 }
 
-export default AdminNotification;
+
+export default AdminRequestSchedSystem;

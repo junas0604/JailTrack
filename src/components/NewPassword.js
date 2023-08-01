@@ -7,7 +7,7 @@ import {
     MDBInput,
     MDBBtn,
 } from 'mdb-react-ui-kit';
-import { Link } from "react-router-dom";
+
 
 
 function NewPassword() {

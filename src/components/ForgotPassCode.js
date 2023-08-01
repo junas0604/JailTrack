@@ -12,9 +12,7 @@ import { Link } from "react-router-dom";
 
 function ForgotPassCode() {
 
-    async function submit(e) {
-        e.preventDefault();
-    }
+  
 
     const formStyle = {
         fontFamily: 'Arial',
