@@ -44,27 +44,27 @@ function Sidebar() {
                 </li>
                 <li style={{ marginBottom: "20px" }}>
                     {/* Use the FaceRecog.png image for the "Face Recognition" link */}
-                    <Link to="/settings" style={{ textDecoration: "none", color: "white" }}>
+                    <Link to="/AdminFaceRecog" style={{ textDecoration: "none", color: "white" }}>
                         <img src="/FaceRecog.png" alt="Face Recognition" style={{ marginRight: "10px", height: "25px", width: "25px" }} />
                         Face Recognition
                     </Link>
                 </li>
                 <li style={{ marginBottom: "20px" }}>
                     {/* Use the policeman.png image for the "View Officers" link */}
-                    <Link to="/Login" style={{ textDecoration: "none", color: "white" }}>
+                    <Link to="/AdminViewOfficer" style={{ textDecoration: "none", color: "white" }}>
                         <img src="/policeman.png" alt="View Officers" style={{ marginRight: "10px", height: "25px", width: "25px" }} />
                         View Officers
                     </Link>
                 </li>
                 <li style={{ marginBottom: "20px" }}>
-                    <Link to="/Login" style={{ textDecoration: "none", color: "white" }}>
+                    <Link to="/AdminOfficerRequest" style={{ textDecoration: "none", color: "white" }}>
                         <img src="/request.png" alt="Officer Request" style={{ marginRight: "10px", height: "25px", width: "25px" }} />
                         Officer Request
                     </Link>
                 </li>
                 <li style={{ marginBottom: "20px" }}>
                     {/* Use the attendance.png image for the "Attendance" link */}
-                    <Link to="/Login" style={{ textDecoration: "none", color: "white" }}>
+                    <Link to="/AttendaceList" style={{ textDecoration: "none", color: "white" }}>
                         <img src="/attendance.png" alt="Attendance" style={{ marginRight: "10px", height: "25px", width: "25px" }} />
                         Attendance
                     </Link>

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import { MDBContainer, MDBCard, MDBCardBody, MDBModal, MDBModalBody, MDBModalHeader } from "mdb-react-ui-kit";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
@@ -23,15 +22,11 @@ function AdminRequestSchedSystem() {
     };
 
     const handleSaveTeam = () => {
-        // Here, you can handle the logic to save the teamName to your state or API/database
-        // For this example, I'm adding the teamName to the teamNamesList array
         setTeamNamesList([...teamNamesList, teamName]);
         toggleModal();
     };
 
     const handleDeleteTeam = (index) => {
-        // Here, you can handle the logic to delete the teamName from your state or API/database
-        // For this example, I'm removing the teamName from the teamNamesList array using its index
         const updatedTeamNamesList = [...teamNamesList];
         updatedTeamNamesList.splice(index, 1);
         setTeamNamesList(updatedTeamNamesList);

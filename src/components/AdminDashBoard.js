@@ -44,6 +44,7 @@ function AdminDashBoard() {
 
         // Add more rows of data here if needed
     ];
+    
     const formStyle = {
         fontFamily: "Arial",
     };
@@ -104,6 +105,7 @@ function AdminDashBoard() {
                         backgroundSize: "cover",
                         flex: 1,
                         padding: "25px",
+                        height:"830px"
                     }}
                 >
                     <MDBContainer className="my-5 py-5">

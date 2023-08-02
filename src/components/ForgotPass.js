@@ -77,7 +77,7 @@ function ForgotPass() {
                                 />
 
                                 <MDBBtn className="mb-4" >
-                                    <Link to="/ForgotPassCode">Send Code</Link>
+                                    <Link to="/ForgotPassCode" style={{color:"black"}}>Send Code</Link>
                                 </MDBBtn>
                                 
                             </MDBCardBody>

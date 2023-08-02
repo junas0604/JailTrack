@@ -82,7 +82,7 @@ function ForgotPassCode() {
                                 />
 
                                 <MDBBtn className="mb-4" >
-                                    <Link to="/NewPassword">Continue</Link>
+                                    <Link to="/NewPassword"style={{color:"black"}}>Continue</Link>
                                 </MDBBtn>
 
 

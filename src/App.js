@@ -1,5 +1,8 @@
 
 import Signup from "./components/signup"
+import AttendaceList from "./components/AttendaceList"
+import AdminFaceRecog from "./components/AdminFaceRecog"
+import AdminViewOfficer from "./components/AdminViewOfficer"
 import AdminCreateSched from "./components/AdminCreateSched"
 import AdminCreateNewTeam from "./components/AdminCreateNewTeam"
 import AdminDashBoard from "./components/AdminDashBoard"
@@ -20,6 +23,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/Login" element={<Login />} />
+          <Route path="/AttendaceList" element={<AttendaceList />} />
+          <Route path="/AdminViewOfficer" element={<AdminViewOfficer />} />
+          <Route path="/AdminFaceRecog" element={<AdminFaceRecog/>} />
           <Route path="/AdminCreateSched" element={<AdminCreateSched />} />
           <Route path="/AdminCreateNewTeam" element={<AdminCreateNewTeam />} />
           <Route path="/AdminRequestSchedSystem" element={<AdminRequestSchedSystem />} />
