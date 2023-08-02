@@ -54,7 +54,7 @@ function AdminRequestSchedSystem() {
                 style={{
                     display: "flex",
                     height: "100vh",
-                    position: "relative", // Add this to make the child divs position relative to the parent
+                    position: "relative",
                 }}
             >
                 <SideBar />
@@ -69,7 +69,7 @@ function AdminRequestSchedSystem() {
                         padding: "25px",
                     }}
                 >
-                    <MDBContainer className="my-5 py-5">
+                    <MDBContainer className="my-10 py-10">
                         <MDBCard>
                             <MDBCardBody>
                                 
@@ -91,7 +91,7 @@ function AdminRequestSchedSystem() {
                                         <FontAwesomeIcon icon={faChevronRight} />
                                     </Link>
                                 </div>
-                                <div style={{marginTop:'-10px',marginLeft: "700px", height: "500px", width: "500px", background: `url('/calBack.png')`, filter: "blur(5px)" }} />
+                                <div style={{marginTop:'-10px',marginLeft: "700px", height: "500px", width: "500px", background: `url('/calBack.png')`, filter: "blur(10px)" }} />
                             </MDBCardBody>
                         </MDBCard>
                     </MDBContainer>

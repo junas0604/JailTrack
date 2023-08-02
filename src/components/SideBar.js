@@ -66,7 +66,7 @@ function Sidebar() {
                     {/* Use the attendance.png image for the "Attendance" link */}
                     <Link to="/AttendaceList" style={{ textDecoration: "none", color: "white" }}>
                         <img src="/attendance.png" alt="Attendance" style={{ marginRight: "10px", height: "25px", width: "25px" }} />
-                        Attendance
+                        Attendance List
                     </Link>
                 </li>
                 <li style={{ marginBottom: "20px" }}>

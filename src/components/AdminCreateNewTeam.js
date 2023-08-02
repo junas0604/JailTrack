@@ -84,7 +84,7 @@ function AdminRequestSchedSystem() {
                         padding: "25px",
                     }}
                 >
-                    <MDBContainer className="my-5 py-5">
+                    <MDBContainer className="my-10 py-10">
                         <MDBCard>
                             <MDBCardBody>
                                 <div style={{ marginTop: "20px", display: "flex", alignItems: "center", cursor: "pointer" }} onClick={toggleModal}>

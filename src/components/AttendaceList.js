@@ -110,7 +110,7 @@ function AttendaceList() {
             flexDirection: "column",
           }}
         >
-          <MDBContainer className="my-5 py-5">
+          <MDBContainer className="my-10 py-10">
             <MDBCard>
               <MDBCardBody>
                 <MDBTable style={{ height:"300px",width: "1200px", border: "2px solid black", borderRadius: "5px" }}>

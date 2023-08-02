@@ -70,7 +70,7 @@ function AdminViewOfficer() {
             flexDirection: "column",
           }}
         >
-          <MDBContainer className="my-5 py-5">
+          <MDBContainer className="my-10 py-10">
             <MDBCard>
               <MDBCardBody>
                

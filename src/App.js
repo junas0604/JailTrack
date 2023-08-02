@@ -1,5 +1,6 @@
 
 import Signup from "./components/signup"
+import StartFaceAttendance from "./components/StartFaceAttendance"
 import AttendaceList from "./components/AttendaceList"
 import AdminFaceRecog from "./components/AdminFaceRecog"
 import AdminViewOfficer from "./components/AdminViewOfficer"
@@ -23,6 +24,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/Login" element={<Login />} />
+          <Route path="/StartFaceAttendance" element={<StartFaceAttendance />} />
           <Route path="/AttendaceList" element={<AttendaceList />} />
           <Route path="/AdminViewOfficer" element={<AdminViewOfficer />} />
           <Route path="/AdminFaceRecog" element={<AdminFaceRecog/>} />

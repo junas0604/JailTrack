@@ -1,5 +1,7 @@
 import React from "react";
 import { MDBContainer, MDBCard, MDBCardBody } from "mdb-react-ui-kit";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleArrowRight } from "@fortawesome/free-solid-svg-icons";
 import SideBar from "../components/SideBar";
 import "react-calendar/dist/Calendar.css";
 
@@ -69,10 +71,41 @@ function AdminFaceRecog() {
             flexDirection: "column",
           }}
         >
-          <MDBContainer className="my-5 py-5">
+          <MDBContainer className="my-10 py-10">
             <MDBCard>
               <MDBCardBody>
-               
+                <div>
+                  <h2>Facial Attendance</h2>
+                  <ul style={{ listStyleType: "none" }}>
+                    <li style={{ fontSize: '30px', border: "2px solid black" }}>
+                      Start Facial Attendance
+                      <a href="/StartFaceAttendance">
+                        <FontAwesomeIcon icon={faCircleArrowRight} style={{ color: "black", marginLeft: "10px" }} />
+                      </a>
+                    </li>
+
+                    <li style={{ fontSize: '30px', border: "2px solid black" , marginTop:"20px"    }}>
+                      Upload Face Data
+                      <a href="/other-page">
+                        <FontAwesomeIcon icon={faCircleArrowRight} style={{ color: "black", marginLeft: "10px" }} />
+                      </a>
+                    </li>
+
+                    <li style={{ fontSize: '30px', border: "2px solid black" , marginTop:"20px"   }}>
+                      View Face Data
+                      <a href="/other-page">
+                        <FontAwesomeIcon icon={faCircleArrowRight} style={{ color: "black", marginLeft: "10px" }} />
+                      </a>
+                    </li >
+
+                    <li style={{ fontSize: '30px', border: "2px solid black" , marginTop:"20px" }}>
+                      View Attendance List
+                      <a href="/AttendaceList">
+                        <FontAwesomeIcon icon={faCircleArrowRight} style={{ color: "black", marginLeft: "10px" }} />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </MDBCardBody>
             </MDBCard>
           </MDBContainer>

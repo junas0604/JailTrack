@@ -108,7 +108,7 @@ function AdminDashBoard() {
                         height:"830px"
                     }}
                 >
-                    <MDBContainer className="my-5 py-5">
+                    <MDBContainer className="my-10 py-10">
                         <MDBCard>
                             <MDBCardBody>
                                 
@@ -120,7 +120,7 @@ function AdminDashBoard() {
                                             style={{ marginRight: "10px", height: "50px", width: "50px" }}
                                         />
                                         <span>
-                                            Hello, Admin Ian{" "}
+                                            Hello, Admin Junas Nazarito 
                                             <img
                                                 src="/wave.png"
                                                 alt="Wave"
