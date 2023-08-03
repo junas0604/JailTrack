@@ -57,7 +57,7 @@ function AdminViewOfficer() {
         }}
       >
         <SideBar />
-        {/* Main content area */}
+
         <div
           className="bg-image"
           style={{
@@ -73,7 +73,7 @@ function AdminViewOfficer() {
           <MDBContainer className="my-10 py-10">
             <MDBCard>
               <MDBCardBody>
-               
+
               </MDBCardBody>
             </MDBCard>
           </MDBContainer>

@@ -58,7 +58,7 @@ function AdminFaceRecog() {
         }}
       >
         <SideBar />
-        {/* Main content area */}
+
         <div
           className="bg-image"
           style={{
@@ -84,23 +84,23 @@ function AdminFaceRecog() {
                       </a>
                     </li>
 
-                    <li style={{ fontSize: '30px', border: "2px solid black" , marginTop:"20px"    }}>
+                    <li style={{ fontSize: '30px', border: "2px solid black", marginTop: "20px" }}>
                       Upload Face Data
-                      <a href="/other-page">
+                      <a href="/UploadFaceData">
                         <FontAwesomeIcon icon={faCircleArrowRight} style={{ color: "black", marginLeft: "10px" }} />
                       </a>
                     </li>
 
-                    <li style={{ fontSize: '30px', border: "2px solid black" , marginTop:"20px"   }}>
+                    <li style={{ fontSize: '30px', border: "2px solid black", marginTop: "20px" }}>
                       View Face Data
-                      <a href="/other-page">
+                      <a href="/ViewFaceData">
                         <FontAwesomeIcon icon={faCircleArrowRight} style={{ color: "black", marginLeft: "10px" }} />
                       </a>
                     </li >
 
-                    <li style={{ fontSize: '30px', border: "2px solid black" , marginTop:"20px" }}>
+                    <li style={{ fontSize: '30px', border: "2px solid black", marginTop: "20px" }}>
                       View Attendance List
-                      <a href="/AttendaceList">
+                      <a href="/AttendanceList">
                         <FontAwesomeIcon icon={faCircleArrowRight} style={{ color: "black", marginLeft: "10px" }} />
                       </a>
                     </li>

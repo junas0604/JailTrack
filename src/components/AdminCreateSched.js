@@ -63,12 +63,12 @@ function AdminCreateSched() {
   const AdditionalModalContent = () => {
     return (
       <MDBModal show={isAdditionalModalOpen} onHide={toggleAdditionalModal} backdrop>
-        {/* Modal Header */}
+
         <MDBModalHeader style={{ backgroundColor: "white", color: "black", fontSize: "25px" }}>
           Schedule Shift
         </MDBModalHeader>
 
-        {/* Modal Body */}
+
         <MDBModalBody style={{ backgroundColor: "white", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px" }}>
           <div className="form-group">
             <label htmlFor="teamSelect">Select Team:</label>
@@ -178,7 +178,7 @@ function AdminCreateSched() {
         }}
       >
         <SideBar />
-        {/* Main content area */}
+     
         <div
           className="bg-image"
           style={{
@@ -195,7 +195,7 @@ function AdminCreateSched() {
             <MDBCard>
               <MDBCardBody>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                  {/* Button on the upper left */}
+
                   <button
                     style={{
                       background: "#E97912",
@@ -207,13 +207,13 @@ function AdminCreateSched() {
                     Auto Shift Options
                   </button>
                   <div style={{ display: "flex", alignItems: "center" }}>
-                    {/* Real-time Month and Year in the middle */}
+
 
                     <h2 onClick={toggleModal} style={{ cursor: "pointer", marginRight: "20px", alignContent: "center", justifyContent: "space-between" }}>
                       {getCurrentMonthAndYear()}
                     </h2>
 
-                    {/* Button on the upper right */}
+
                     <button
                       style={{
                         background: "#5A8C5A",
@@ -231,7 +231,7 @@ function AdminCreateSched() {
                   </div>
                 </div>
 
-                {/* Calendar form table */}
+
                 <MDBTable style={{ width: "100%", marginTop: "20px", border: "2px solid black", borderCollapse: "collapse" }}>
                   <MDBTableHead>
                     <tr>
@@ -279,7 +279,7 @@ function AdminCreateSched() {
                   </MDBTableBody>
                 </MDBTable>
 
-                {/* Real-time Calendar Modal */}
+
                 <MDBModal show={isModalOpen} onHide={toggleModal} backdrop>
                   <MDBModalHeader style={{ backgroundColor: "white", color: "black", fontSize: "25px" }}>Real-time Calendar</MDBModalHeader>
                   <MDBModalBody style={{ backgroundColor: "white", display: "flex", justifyContent: "center" }}>
@@ -290,7 +290,7 @@ function AdminCreateSched() {
                   </MDBModalFooter>
                 </MDBModal>
 
-                {/* Additional Modal with Dropdowns */}
+
                 <AdditionalModalContent />
                 <PublishModalContent />
               </MDBCardBody>

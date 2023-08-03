@@ -1,15 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { MDBContainer, MDBCard, MDBCardBody } from "mdb-react-ui-kit";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleArrowRight } from "@fortawesome/free-solid-svg-icons";
+import SideBar from "../components/SideBar";
+import "react-calendar/dist/Calendar.css";
 
-import {
-    MDBContainer,
-    MDBCard,
-    MDBCardBody,
-} from "mdb-react-ui-kit";
-import SideBar from "../components/SideBar"
+function Settings() {
 
-function AdminNotification() {
-
+    
     const formStyle = {
         fontFamily: "Arial",
     };
@@ -57,11 +55,10 @@ function AdminNotification() {
                 style={{
                     display: "flex",
                     height: "100vh",
-                    position: "relative",
+                    position: "relative", 
                 }}
             >
                 <SideBar />
-
                 <div
                     className="bg-image"
                     style={{
@@ -72,36 +69,51 @@ function AdminNotification() {
                         padding: "25px",
                     }}
                 >
-                    <MDBContainer className="my-10 py-10">
-                        <MDBCard>
-                            <MDBCardBody>
-                                <div style={{ backgroundColor: "skyblue", padding: "10px", marginBottom: "20px" }}>
-                                    <h2 style={{ textAlign: "center", margin: 0, color: "white" }}>Notifications</h2>
-                                </div>
+                     <MDBContainer className="my-10 py-10">
+            <MDBCard>
+              <MDBCardBody>
+                <div>
+                  <h2>Settings</h2>
+                  <ul style={{ listStyleType: "none" }}>
+                    <li style={{ fontSize: '30px' }}>
+                      Edit Profile
+                      <a href="/StartFaceAttendance">
+                        <FontAwesomeIcon icon={faCircleArrowRight} style={{ color: "black", marginLeft: "10px" }} />
+                      </a>
+                    </li>
 
+                    <li style={{ fontSize: '30px', marginTop: "20px" }}>
+                      About Us
+                      <a href="/UploadFaceData">
+                        <FontAwesomeIcon icon={faCircleArrowRight} style={{ color: "black", marginLeft: "10px" }} />
+                      </a>
+                    </li>
 
-                                <div style={{ marginBottom: "20px", padding: "10px", backgroundColor: "#D9D9D9" }}>
-                                    <h3 style={{ color: "#000000", marginBottom: "10px" }}>Notification 1</h3>
-                                    <p style={{ color: "#000000" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non hendrerit nisl, nec dignissim mauris.</p>
-                                </div>
+                    <li style={{ fontSize: '30px', marginTop: "20px" }}>
+                      User Feedback
+                      <a href="/ViewFaceData">
+                        <FontAwesomeIcon icon={faCircleArrowRight} style={{ color: "black", marginLeft: "10px" }} />
+                      </a>
+                    </li >
 
-                                <div className="notification" style={{ marginBottom: "20px", padding: "10px", backgroundColor: "#D9D9D9" }}>
-                                    <h3 style={{ color: "#000000", marginBottom: "10px" }}>Notification 2</h3>
-                                    <p style={{ color: "#000000" }}>Sed feugiat, sapien ut fringilla iaculis, metus lacus placerat ipsum.</p>
-                                </div>
-
-                                <div style={{ marginBottom: "20px", padding: "10px", marginLeft: "900px" }}>
-                                    <Link to="/AdminOfficerRequest"> <h4 style={{ color: "#000000" }}> <img src="/request.png" alt="Request" tyle={{ height: "30px", width: "30px", marginRight: "20px" }} /> Officer Request.</h4></Link>
-                                </div>
-
-
-                            </MDBCardBody>
-                        </MDBCard>
-                    </MDBContainer>
+                    <li style={{ fontSize: '30px', marginTop: "20px" }}>
+                      Log Out
+                      <a href="/Login">
+                        <FontAwesomeIcon icon={faCircleArrowRight} style={{ color: "black", marginLeft: "10px" }} />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </MDBCardBody>
+            </MDBCard>
+          </MDBContainer>
                 </div>
             </div>
         </form>
     );
 }
 
-export default AdminNotification;
+export default Settings;
+
+
+

@@ -1,7 +1,13 @@
 
 import Signup from "./components/signup"
+import Settings from "./components/Settings"
+import RightFace from "./components/RightFace"
+import LeftFace from "./components/LeftFace"
+import FrontFace from "./components/FrontFace"
+import ScanFace from "./components/ScanFace"
+import UploadFaceData from "./components/UploadFaceData"
 import StartFaceAttendance from "./components/StartFaceAttendance"
-import AttendaceList from "./components/AttendaceList"
+import AttendanceList from "./components/AttendanceList"
 import AdminFaceRecog from "./components/AdminFaceRecog"
 import AdminViewOfficer from "./components/AdminViewOfficer"
 import AdminCreateSched from "./components/AdminCreateSched"
@@ -16,6 +22,7 @@ import NewPassword from "./components/NewPassword"
 import AdminOfficerRequest from "./components/AdminOfficerRequest"
 import SideBar from "./components/SideBar"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ViewFaceData from "./components/ViewFaceData"
 
 function App() {
   return (
@@ -23,11 +30,18 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Login />} />
+          <Route path="/Settings" element={<Settings />} />
+          <Route path="/ViewFaceData" element={<ViewFaceData  />} />
+          <Route path="/RightFace" element={<RightFace />} />
+          <Route path="/LeftFace" element={<LeftFace />} />
+          <Route path="/FrontFace" element={<FrontFace />} />
+          <Route path="/ScanFace" element={<ScanFace />} />
+          <Route path="/UploadFaceData" element={<UploadFaceData />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/StartFaceAttendance" element={<StartFaceAttendance />} />
-          <Route path="/AttendaceList" element={<AttendaceList />} />
+          <Route path="/AttendanceList" element={<AttendanceList />} />
           <Route path="/AdminViewOfficer" element={<AdminViewOfficer />} />
-          <Route path="/AdminFaceRecog" element={<AdminFaceRecog/>} />
+          <Route path="/AdminFaceRecog" element={<AdminFaceRecog />} />
           <Route path="/AdminCreateSched" element={<AdminCreateSched />} />
           <Route path="/AdminCreateNewTeam" element={<AdminCreateNewTeam />} />
           <Route path="/AdminRequestSchedSystem" element={<AdminRequestSchedSystem />} />
@@ -36,8 +50,8 @@ function App() {
           <Route path="/ForgotPassCode" element={<ForgotPassCode />} />
           <Route path="/NewPassword" element={<NewPassword />} />
           <Route path="/SideBar" element={<SideBar />} />
-          <Route path="/AdminDashBoard" element={<AdminDashBoard/>} />
-          <Route path="/AdminNotification" element={<AdminNotification/>} />
+          <Route path="/AdminDashBoard" element={<AdminDashBoard />} />
+          <Route path="/AdminNotification" element={<AdminNotification />} />
           <Route path="/Signup" element={<Signup />} />
         </Routes>
       </Router>

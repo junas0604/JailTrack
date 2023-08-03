@@ -89,11 +89,11 @@ function AdminOfficerRequest() {
                 style={{
                     display: "flex",
                     height: "100vh",
-                    position: "relative", // Add this to make the child divs position relative to the parent
+                    position: "relative",
                 }}
             >
                 <SideBar />
-                {/* Main content area */}
+
                 <div
                     className="bg-image"
                     style={{
@@ -117,7 +117,7 @@ function AdminOfficerRequest() {
                                             <th>Request Type</th>
                                             <th>Existing Shift</th>
                                             <th>New Shift</th>
-                                            <th>Approval Status</th> {/* Added the Approval Status column */}
+                                            <th>Approval Status</th>
                                         </tr>
                                     </MDBTableHead>
                                     <MDBTableBody>
@@ -146,7 +146,7 @@ function AdminOfficerRequest() {
                                         {accountApprovalRequests.map((request, index) => (
                                             <tr key={index}>
                                                 <td>User "{request.User}" or {request.Name} has requested to register an account.</td>
-                                                <td style={{marginLeft:'50px'}}>
+                                                <td style={{ marginLeft: '50px' }}>
                                                     <button className="btn btn-success mr-1">Approve</button>
                                                     <button className="btn btn-danger ml-1">Cancel</button>
                                                 </td>

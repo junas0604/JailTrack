@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { MDBContainer, MDBCard, MDBCardBody} from "mdb-react-ui-kit";
+import { MDBContainer, MDBCard, MDBCardBody } from "mdb-react-ui-kit";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import SideBar from "../components/SideBar";
@@ -12,7 +12,7 @@ function AdminRequestSchedSystem() {
 
     return (
         <form style={formStyle}>
-           <nav
+            <nav
                 className="navbar navbar-expand-lg navbar-dark bg-dark"
                 style={{ height: "65px" }}
             >
@@ -58,7 +58,7 @@ function AdminRequestSchedSystem() {
                 }}
             >
                 <SideBar />
-                {/* Main content area */}
+
                 <div
                     className="bg-image"
                     style={{
@@ -72,8 +72,8 @@ function AdminRequestSchedSystem() {
                     <MDBContainer className="my-10 py-10">
                         <MDBCard>
                             <MDBCardBody>
-                                
-                            <div style={{ marginTop: "20px", display: "flex", alignItems: "center" }}>
+
+                                <div style={{ marginTop: "20px", display: "flex", alignItems: "center" }}>
                                     <span style={{ flex: 1 }}>
                                         Create & View Team
                                     </span>
@@ -81,8 +81,8 @@ function AdminRequestSchedSystem() {
                                         <FontAwesomeIcon icon={faChevronRight} />
                                     </Link>
                                 </div>
-                                
-                                {/* Create Schedule */}
+
+
                                 <div style={{ marginTop: "20px", display: "flex", alignItems: "center" }}>
                                     <span style={{ flex: 1 }}>
                                         Create Schedule
@@ -91,7 +91,7 @@ function AdminRequestSchedSystem() {
                                         <FontAwesomeIcon icon={faChevronRight} />
                                     </Link>
                                 </div>
-                                <div style={{marginTop:'-10px',marginLeft: "700px", height: "500px", width: "500px", background: `url('/calBack.png')`, filter: "blur(10px)" }} />
+                                <div style={{ marginTop: '-10px', marginLeft: "700px", height: "500px", width: "500px", background: `url('/calBack.png')`, filter: "blur(10px)" }} />
                             </MDBCardBody>
                         </MDBCard>
                     </MDBContainer>

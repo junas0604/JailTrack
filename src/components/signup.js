@@ -88,7 +88,7 @@ function Signup() {
                                         id="name"
                                         type="name"
                                         placeholder="Full Name"
-                                        style={solidOutline} // Apply the solid outline style
+                                        style={solidOutline}
                                     />
 
                                     <MDBInput
@@ -98,7 +98,7 @@ function Signup() {
                                         id="email"
                                         type="email"
                                         placeholder="Email Address"
-                                        style={solidOutline} // Apply the solid outline style
+                                        style={solidOutline}
                                     />
 
                                     <MDBInput
@@ -108,7 +108,7 @@ function Signup() {
                                         id="phonenumber"
                                         type="name"
                                         placeholder="Phone Number"
-                                        style={solidOutline} // Apply the solid outline style
+                                        style={solidOutline}
                                     />
 
                                     <MDBInput
@@ -118,7 +118,7 @@ function Signup() {
                                         id="name"
                                         type="name"
                                         placeholder="Rank/Position"
-                                        style={solidOutline} // Apply the solid outline style
+                                        style={solidOutline}
                                     />
 
                                     <MDBInput
@@ -128,7 +128,7 @@ function Signup() {
                                         id="password"
                                         type="password"
                                         placeholder="Enter Password"
-                                        style={solidOutline} // Apply the solid outline style
+                                        style={solidOutline}
                                     />
 
                                     <MDBInput
@@ -138,7 +138,7 @@ function Signup() {
                                         id="confirmPassword"
                                         type="password"
                                         placeholder="Confirm Password"
-                                        style={solidOutline} // Apply the solid outline style
+                                        style={solidOutline}
                                     />
 
                                     <MDBBtn className="mb-4" onClick={submit}>
@@ -148,7 +148,7 @@ function Signup() {
                                     <div style={centerText}>
                                         <p >Already have an account? <Link to="/Login">Login</Link></p>
                                     </div>
-                                    
+
                                 </MDBRow>
                             </MDBCardBody>
                         </MDBCard>

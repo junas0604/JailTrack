@@ -42,9 +42,8 @@ function AdminDashBoard() {
         },
 
 
-        // Add more rows of data here if needed
     ];
-    
+
     const formStyle = {
         fontFamily: "Arial",
     };
@@ -92,11 +91,11 @@ function AdminDashBoard() {
                 style={{
                     display: "flex",
                     height: "100vh",
-                    position: "relative", // Add this to make the child divs position relative to the parent
+                    position: "relative",
                 }}
             >
                 <SideBar />
-                {/* Main content area */}
+
                 <div
                     className="bg-image"
                     style={{
@@ -105,13 +104,13 @@ function AdminDashBoard() {
                         backgroundSize: "cover",
                         flex: 1,
                         padding: "25px",
-                        height:"830px"
+                        height: "830px"
                     }}
                 >
                     <MDBContainer className="my-10 py-10">
                         <MDBCard>
                             <MDBCardBody>
-                                
+
                                 <MDBCard style={{ width: "40%", maxWidth: "600px", backgroundColor: "#5A5A5A4D" }}>
                                     <MDBCardBody style={{ width: "100%" }}>
                                         <img
@@ -120,7 +119,7 @@ function AdminDashBoard() {
                                             style={{ marginRight: "10px", height: "50px", width: "50px" }}
                                         />
                                         <span>
-                                            Hello, Admin Junas Nazarito 
+                                            Hello, Admin Junas Nazarito
                                             <img
                                                 src="/wave.png"
                                                 alt="Wave"
@@ -131,11 +130,11 @@ function AdminDashBoard() {
                                 </MDBCard>
 
 
-                                
-                                    <MDBCard
-                                        style={{ width: "19%", maxWidth: "600px", backgroundColor: "#146CA4", marginTop: '10px' }}
-                                    >
-                                        <Link to="/AdminRequestSchedSystem" style={{ textDecoration: "none" ,color:"black" }}>
+
+                                <MDBCard
+                                    style={{ width: "19%", maxWidth: "600px", backgroundColor: "#146CA4", marginTop: '10px' }}
+                                >
+                                    <Link to="/AdminRequestSchedSystem" style={{ textDecoration: "none", color: "black" }}>
                                         <MDBCardBody style={{ width: "100%" }}>
                                             Scheduling System{" "}
                                             <p></p>
@@ -145,13 +144,13 @@ function AdminDashBoard() {
                                                 style={{ marginLeft: "50px", height: "80px", width: "80px" }}
                                             />
                                         </MDBCardBody>
-                                        </Link>
-                                    </MDBCard>
-                                
-                                    <MDBCard
-                                        style={{ width: "19%", maxWidth: "600px", backgroundColor: "#146CA4", marginTop: '-155px', marginLeft: '250px' }}
-                                    >
-                                         <Link to="/login" style={{ textDecoration: "none" ,color:"black" }}>
+                                    </Link>
+                                </MDBCard>
+
+                                <MDBCard
+                                    style={{ width: "19%", maxWidth: "600px", backgroundColor: "#146CA4", marginTop: '-155px', marginLeft: '250px' }}
+                                >
+                                    <Link to="/StartFaceAttendance" style={{ textDecoration: "none", color: "black" }}>
                                         <MDBCardBody style={{ width: "100%" }}>
                                             Face Recognition{" "}
                                             <p></p>
@@ -161,15 +160,15 @@ function AdminDashBoard() {
                                                 style={{ marginLeft: "50px", height: "80px", width: "80px" }}
                                             />
                                         </MDBCardBody>
-                                        </Link>
-                                    </MDBCard>
-                               
+                                    </Link>
+                                </MDBCard>
 
-                                
-                                    <MDBCard
-                                        style={{ width: "19%", maxWidth: "600px", backgroundColor: "#5A8C5A", marginTop: '20px' }}
-                                    >
-                                        <Link to="/AdminOfficerRequest" style={{ textDecoration: "none" ,color:"black" }}>
+
+
+                                <MDBCard
+                                    style={{ width: "19%", maxWidth: "600px", backgroundColor: "#5A8C5A", marginTop: '20px' }}
+                                >
+                                    <Link to="/AdminOfficerRequest" style={{ textDecoration: "none", color: "black" }}>
                                         <MDBCardBody style={{ width: "100%" }}>
                                             Officer Request{" "}
                                             <p></p>
@@ -179,15 +178,15 @@ function AdminDashBoard() {
                                                 style={{ marginLeft: "50px", height: "80px", width: "80px" }}
                                             />
                                         </MDBCardBody>
-                                        </Link>
-                                    </MDBCard>
-                                
+                                    </Link>
+                                </MDBCard>
 
-                                
-                                    <MDBCard
-                                        style={{ width: "19%", maxWidth: "600px", backgroundColor: "#146CA4", marginTop: '-155px', marginLeft: '250px' }}
-                                    >
-                                        <Link to="/NewPassword" style={{ textDecoration: "none" ,color:"black" }}>
+
+
+                                <MDBCard
+                                    style={{ width: "19%", maxWidth: "600px", backgroundColor: "#146CA4", marginTop: '-155px', marginLeft: '250px' }}
+                                >
+                                    <Link to="/NewPassword" style={{ textDecoration: "none", color: "black" }}>
                                         <MDBCardBody style={{ width: "100%" }}>
                                             View Officer on Duty{" "}
                                             <p></p>
@@ -197,10 +196,10 @@ function AdminDashBoard() {
                                                 style={{ marginLeft: "50px", height: "80px", width: "80px" }}
                                             />
                                         </MDBCardBody>
-                                        </Link>
-                                    </MDBCard>
-                                
-                                
+                                    </Link>
+                                </MDBCard>
+
+
                                 <MDBTable style={{ marginLeft: "520px", width: "750px", marginTop: "-420px", marginBottom: "400px", border: "2px solid black", borderRadius: "5px" }}>
                                     <MDBTableHead>
                                         <tr>
@@ -231,7 +230,7 @@ function AdminDashBoard() {
                         </MDBCard>
                     </MDBContainer>
                     <MDBContainer>
-                        
+
                     </MDBContainer>
                 </div>
             </div>

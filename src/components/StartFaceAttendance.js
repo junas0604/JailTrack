@@ -1,13 +1,14 @@
 import React from "react";
-import { MDBContainer, MDBCard, MDBCardBody } from "mdb-react-ui-kit";
+import { MDBContainer, MDBCard, MDBCardBody, MDBBtn } from "mdb-react-ui-kit";
 import SideBar from "../components/SideBar";
 import "react-calendar/dist/Calendar.css";
-import { Link } from "react-router-dom"; // Import Link for navigation
+import { Link } from "react-router-dom";
 
 function StartFaceAttendance() {
   const formStyle = {
     fontFamily: "Arial",
   };
+
 
   return (
     <form style={formStyle}>
@@ -54,7 +55,6 @@ function StartFaceAttendance() {
         }}
       >
         <SideBar />
-        {/* Main content area */}
         <div
           className="bg-image"
           style={{
@@ -72,7 +72,6 @@ function StartFaceAttendance() {
               <MDBCardBody>
                 <div style={{ display: "flex" }}>
                   <Link to="/AdminFaceRecog">
-                    {/* Use Link to make the image clickable */}
                     <img
                       src="back.png"
                       alt="Back"
@@ -108,7 +107,7 @@ function StartFaceAttendance() {
                     }}
                   >
                     <MDBContainer>
-                      <table className="table" style={{marginTop:"70px"}}>
+                      <table className="table" style={{ marginTop: "70px" }}>
                         <tbody>
                           <tr>
                             <td>
@@ -148,6 +147,11 @@ function StartFaceAttendance() {
                           </tr>
                         </tbody>
                       </table>
+                      <MDBBtn color="success">
+                        <Link to="/AttendanceList" style={{ color: "white", textDecoration: "none" }}>
+                          View Attendance List
+                        </Link>
+                      </MDBBtn>
                     </MDBContainer>
                   </div>
                 </div>

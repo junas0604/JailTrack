@@ -10,7 +10,7 @@ import {
   MDBTableBody,
 } from "mdb-react-ui-kit";
 
-function AttendaceList() {
+function AttendanceList() {
 
   const tableData = [
     {
@@ -40,9 +40,6 @@ function AttendaceList() {
       timeIn: "09:00 AM",
       timeOut: "05:00 PM",
     },
-
-
-    // Add more rows of data here if needed
   ];
 
   const formStyle = {
@@ -97,7 +94,7 @@ function AttendaceList() {
         }}
       >
         <SideBar />
-        {/* Main content area */}
+
         <div
           className="bg-image"
           style={{
@@ -113,7 +110,7 @@ function AttendaceList() {
           <MDBContainer className="my-10 py-10">
             <MDBCard>
               <MDBCardBody>
-                <MDBTable style={{ height:"300px",width: "1200px", border: "2px solid black", borderRadius: "5px" }}>
+                <MDBTable style={{ height: "300px", width: "1200px", border: "2px solid black", borderRadius: "5px" }}>
                   <MDBTableHead>
                     <tr>
                       <th>Face ID</th>
@@ -128,13 +125,13 @@ function AttendaceList() {
                   <MDBTableBody>
                     {tableData.map((row, index) => (
                       <tr key={index}>
-                        <td style={{border: "2px solid black" }}>{row.faceId}</td>
-                        <td style={{border: "2px solid black" }}>{row.userId}</td>
-                        <td style={{border: "2px solid black" }}>{row.name}</td>
-                        <td style={{border: "2px solid black" }}>{row.date}</td>
-                        <td style={{border: "2px solid black" }}>{row.designatedPlace}</td>
-                        <td style={{border: "2px solid black" }}>{row.timeIn}</td>
-                        <td style={{border: "2px solid black" }}>{row.timeOut}</td>
+                        <td style={{ border: "2px solid black" }}>{row.faceId}</td>
+                        <td style={{ border: "2px solid black" }}>{row.userId}</td>
+                        <td style={{ border: "2px solid black" }}>{row.name}</td>
+                        <td style={{ border: "2px solid black" }}>{row.date}</td>
+                        <td style={{ border: "2px solid black" }}>{row.designatedPlace}</td>
+                        <td style={{ border: "2px solid black" }}>{row.timeIn}</td>
+                        <td style={{ border: "2px solid black" }}>{row.timeOut}</td>
                       </tr>
                     ))}
                   </MDBTableBody>
@@ -148,4 +145,4 @@ function AttendaceList() {
   );
 }
 
-export default AttendaceList;
+export default AttendanceList;

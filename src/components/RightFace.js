@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
 import {
     MDBContainer,
     MDBCard,
@@ -8,7 +7,8 @@ import {
 } from "mdb-react-ui-kit";
 import SideBar from "../components/SideBar"
 
-function AdminNotification() {
+function RightFace() {
+
 
     const formStyle = {
         fontFamily: "Arial",
@@ -57,11 +57,11 @@ function AdminNotification() {
                 style={{
                     display: "flex",
                     height: "100vh",
-                    position: "relative",
+                    position: "relative", // Add this to make the child divs position relative to the parent
                 }}
             >
                 <SideBar />
-
+                {/* Main content area */}
                 <div
                     className="bg-image"
                     style={{
@@ -72,36 +72,67 @@ function AdminNotification() {
                         padding: "25px",
                     }}
                 >
-                    <MDBContainer className="my-10 py-10">
-                        <MDBCard>
-                            <MDBCardBody>
-                                <div style={{ backgroundColor: "skyblue", padding: "10px", marginBottom: "20px" }}>
-                                    <h2 style={{ textAlign: "center", margin: 0, color: "white" }}>Notifications</h2>
-                                </div>
+                    <MDBContainer className="my-5 py-5" >
+                <MDBCard style={{ height: "500px" }}>
+                <MDBCardBody>
+                    <Link to="/LeftFace">
+                    <img
+                        src="Left.png"
+                        alt="Left Face"
+                        width="50"
+                        height="50"
+                        style={{
+                        cursor: "pointer",
+                        position: "absolute",
+                        top: "50%",
+                        left: "0",
+                        transform: "translateY(-50%)",
+                        }}
+                    />
+                    </Link>
 
+                    <img
+                    src="RightFacePicture.png"
+                    alt="Middle Face"
+                    width="400"
+                    height="400"
+                    style={{
+                        position: "absolute",
+                        top: "50%",
+                        left: "50%",
+                        transform: "translate(-50%, -50%)",
+                    }}
+                    />
 
-                                <div style={{ marginBottom: "20px", padding: "10px", backgroundColor: "#D9D9D9" }}>
-                                    <h3 style={{ color: "#000000", marginBottom: "10px" }}>Notification 1</h3>
-                                    <p style={{ color: "#000000" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non hendrerit nisl, nec dignissim mauris.</p>
-                                </div>
+                    
 
-                                <div className="notification" style={{ marginBottom: "20px", padding: "10px", backgroundColor: "#D9D9D9" }}>
-                                    <h3 style={{ color: "#000000", marginBottom: "10px" }}>Notification 2</h3>
-                                    <p style={{ color: "#000000" }}>Sed feugiat, sapien ut fringilla iaculis, metus lacus placerat ipsum.</p>
-                                </div>
-
-                                <div style={{ marginBottom: "20px", padding: "10px", marginLeft: "900px" }}>
-                                    <Link to="/AdminOfficerRequest"> <h4 style={{ color: "#000000" }}> <img src="/request.png" alt="Request" tyle={{ height: "30px", width: "30px", marginRight: "20px" }} /> Officer Request.</h4></Link>
-                                </div>
-
-
-                            </MDBCardBody>
-                        </MDBCard>
-                    </MDBContainer>
+                    <Link to="/FrontFace">
+                    <img
+                        src="Right.png"
+                        alt="Right Face"
+                        width="50"
+                        height="50"
+                        style={{
+                        cursor: "pointer",
+                        position: "absolute",
+                        top: "50%",
+                        right: "0",
+                        transform: "translateY(-50%)",
+                        }}
+                    />
+                    </Link>
+                   
+                </MDBCardBody>
+                <h3 style={{marginLeft:"390px", fontWeight:"bold"}}>Position Your Right Face within the Frame </h3>
+                </MDBCard>
+            </MDBContainer>
                 </div>
             </div>
         </form>
     );
 }
 
-export default AdminNotification;
+export default RightFace;
+
+
+

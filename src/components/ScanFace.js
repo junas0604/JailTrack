@@ -1,21 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { MDBContainer, MDBCard, MDBCardBody } from "mdb-react-ui-kit";
+import SideBar from "../components/SideBar";
 
-import {
-    MDBContainer,
-    MDBCard,
-    MDBCardBody,
-} from "mdb-react-ui-kit";
-import SideBar from "../components/SideBar"
-
-function AdminNotification() {
-
+function ScanFace() {
     const formStyle = {
         fontFamily: "Arial",
     };
+
     return (
         <form style={formStyle}>
-            <nav
+           <nav
                 className="navbar navbar-expand-lg navbar-dark bg-dark"
                 style={{ height: "65px" }}
             >
@@ -61,7 +56,6 @@ function AdminNotification() {
                 }}
             >
                 <SideBar />
-
                 <div
                     className="bg-image"
                     style={{
@@ -72,29 +66,31 @@ function AdminNotification() {
                         padding: "25px",
                     }}
                 >
-                    <MDBContainer className="my-10 py-10">
+                    <MDBContainer className="my-5 py-5">
                         <MDBCard>
                             <MDBCardBody>
-                                <div style={{ backgroundColor: "skyblue", padding: "10px", marginBottom: "20px" }}>
-                                    <h2 style={{ textAlign: "center", margin: 0, color: "white" }}>Notifications</h2>
+                                {/* Center the content inside the container */}
+                                <div
+                                    style={{
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        height: "100%",
+                                    }}
+                                >
+                                    {/* Clickable image with link */}
+                                    <Link to="/LeftFace">
+                                        <img
+                                            src="camera.png"
+                                            alt="Officer's Face"
+                                            width="700"
+                                            height="700"
+                                            style={{ cursor: "pointer" }}
+                                        />
+
+                                        
+                                    </Link>
                                 </div>
-
-
-                                <div style={{ marginBottom: "20px", padding: "10px", backgroundColor: "#D9D9D9" }}>
-                                    <h3 style={{ color: "#000000", marginBottom: "10px" }}>Notification 1</h3>
-                                    <p style={{ color: "#000000" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non hendrerit nisl, nec dignissim mauris.</p>
-                                </div>
-
-                                <div className="notification" style={{ marginBottom: "20px", padding: "10px", backgroundColor: "#D9D9D9" }}>
-                                    <h3 style={{ color: "#000000", marginBottom: "10px" }}>Notification 2</h3>
-                                    <p style={{ color: "#000000" }}>Sed feugiat, sapien ut fringilla iaculis, metus lacus placerat ipsum.</p>
-                                </div>
-
-                                <div style={{ marginBottom: "20px", padding: "10px", marginLeft: "900px" }}>
-                                    <Link to="/AdminOfficerRequest"> <h4 style={{ color: "#000000" }}> <img src="/request.png" alt="Request" tyle={{ height: "30px", width: "30px", marginRight: "20px" }} /> Officer Request.</h4></Link>
-                                </div>
-
-
                             </MDBCardBody>
                         </MDBCard>
                     </MDBContainer>
@@ -104,4 +100,4 @@ function AdminNotification() {
     );
 }
 
-export default AdminNotification;
+export default ScanFace;

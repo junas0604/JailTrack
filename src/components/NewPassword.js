@@ -69,9 +69,6 @@ function NewPassword() {
                             <MDBCardBody className='px-5 text-center'>
                                 <h2 className="text-uppercase text-center mb-5" style={{ fontWeight: "bold" }}>Forgot Password</h2>
 
-
-
-
                                 <MDBInput
                                     wrapperClass="mb-4"
                                     label="Enter New Password"

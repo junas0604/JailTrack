@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { MDBContainer, MDBCard, MDBCardBody, MDBModal, MDBModalBody, MDBModalHeader } from "mdb-react-ui-kit";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 import SideBar from "../components/SideBar";
 
 function AdminRequestSchedSystem() {
@@ -99,7 +99,7 @@ function AdminRequestSchedSystem() {
                                         </button>
                                     </div>
                                 ))}
-                                {/* Modal */}
+
                                 <MDBModal show={modalOpen} onHide={toggleModal}>
                                     <MDBModalHeader toggle={toggleModal} className="modal-header" style={{ backgroundColor: 'white' }}>
                                         Create New Team

@@ -1,6 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
-
 import {
     MDBContainer,
     MDBCard,
@@ -8,8 +6,9 @@ import {
 } from "mdb-react-ui-kit";
 import SideBar from "../components/SideBar"
 
-function AdminNotification() {
+function ViewFaceData() {
 
+    
     const formStyle = {
         fontFamily: "Arial",
     };
@@ -57,11 +56,11 @@ function AdminNotification() {
                 style={{
                     display: "flex",
                     height: "100vh",
-                    position: "relative",
+                    position: "relative", // Add this to make the child divs position relative to the parent
                 }}
             >
                 <SideBar />
-
+                {/* Main content area */}
                 <div
                     className="bg-image"
                     style={{
@@ -72,31 +71,11 @@ function AdminNotification() {
                         padding: "25px",
                     }}
                 >
-                    <MDBContainer className="my-10 py-10">
+                    <MDBContainer className="my-5 py-5">
                         <MDBCard>
                             <MDBCardBody>
-                                <div style={{ backgroundColor: "skyblue", padding: "10px", marginBottom: "20px" }}>
-                                    <h2 style={{ textAlign: "center", margin: 0, color: "white" }}>Notifications</h2>
-                                </div>
-
-
-                                <div style={{ marginBottom: "20px", padding: "10px", backgroundColor: "#D9D9D9" }}>
-                                    <h3 style={{ color: "#000000", marginBottom: "10px" }}>Notification 1</h3>
-                                    <p style={{ color: "#000000" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non hendrerit nisl, nec dignissim mauris.</p>
-                                </div>
-
-                                <div className="notification" style={{ marginBottom: "20px", padding: "10px", backgroundColor: "#D9D9D9" }}>
-                                    <h3 style={{ color: "#000000", marginBottom: "10px" }}>Notification 2</h3>
-                                    <p style={{ color: "#000000" }}>Sed feugiat, sapien ut fringilla iaculis, metus lacus placerat ipsum.</p>
-                                </div>
-
-                                <div style={{ marginBottom: "20px", padding: "10px", marginLeft: "900px" }}>
-                                    <Link to="/AdminOfficerRequest"> <h4 style={{ color: "#000000" }}> <img src="/request.png" alt="Request" tyle={{ height: "30px", width: "30px", marginRight: "20px" }} /> Officer Request.</h4></Link>
-                                </div>
-
-
                             </MDBCardBody>
-                        </MDBCard>
+                           </MDBCard>     
                     </MDBContainer>
                 </div>
             </div>
@@ -104,4 +83,7 @@ function AdminNotification() {
     );
 }
 
-export default AdminNotification;
+export default ViewFaceData;
+
+
+
