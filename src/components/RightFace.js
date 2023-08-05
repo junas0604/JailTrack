@@ -57,11 +57,11 @@ function RightFace() {
                 style={{
                     display: "flex",
                     height: "100vh",
-                    position: "relative", // Add this to make the child divs position relative to the parent
+                    position: "relative",
                 }}
             >
                 <SideBar />
-                {/* Main content area */}
+       
                 <div
                     className="bg-image"
                     style={{

@@ -84,7 +84,7 @@ function Settings() {
 
                     <li style={{ fontSize: '30px', marginTop: "20px" }}>
                       About Us
-                      <a href="/UploadFaceData">
+                      <a href="/AboutUs">
                         <FontAwesomeIcon icon={faCircleArrowRight} style={{ color: "black", marginLeft: "10px" }} />
                       </a>
                     </li>
