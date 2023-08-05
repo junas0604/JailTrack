@@ -20,7 +20,9 @@ function Signup() {
     const [fullName, setfullName] = useState('');
     const [phoneNumber, setphoneNumber] = useState('');
     const [rank, setRank] = useState('');
-    const [RePassword,setRePassword] = useState('');
+    const [RePassword, setRePassword] = useState('');
+    const [successMessage, setSuccessMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     async function submit(e) {
         e.preventDefault();
@@ -28,16 +30,26 @@ function Signup() {
         // Basic email validation using a regular expression
         const emailRegex = /^\S+@\S+\.\S+$/;
         if (!emailRegex.test(email)) {
-            alert("Invalid email format. Please enter a valid email address.");
+            setErrorMessage("Invalid email format. Please enter a valid email address.");
+            setSuccessMessage("");
+            return;
+        }
+
+        // Check if the password and re-entered password match
+        if (password !== RePassword) {
+            setErrorMessage("Password and Confirm Password do not match.");
+            setSuccessMessage("");
             return;
         }
 
         try {
-            await createUserWithEmailAndPassword(auth, email, password, fullName, phoneNumber, rank, password);
-            // Account creation successful, you can do additional actions here if needed.
+            await createUserWithEmailAndPassword(auth, email, password, fullName, phoneNumber, rank);
+            setSuccessMessage("You have successfully created an account!");
+            setErrorMessage(""); // Clear any previous error message
         } catch (error) {
             console.error("Error creating account:", error);
-            // Handle the error as needed (e.g., display a user-friendly message)
+            setErrorMessage("Error creating account. Please try again.");
+            setSuccessMessage(""); // Clear any previous success message
         }
     }
 
@@ -98,6 +110,7 @@ function Signup() {
                     }}
                 />
 
+
                 <MDBContainer fluid className='d-flex align-items-center justify-content-center bg-image'>
                     <div className='mask gradient-custom-3'>
                         <MDBCard className='m-5' style={{ maxWidth: '800px' }}>
@@ -105,26 +118,40 @@ function Signup() {
                                 <MDBRow>
                                     <h2 className="text-uppercase text-center mb-5">Create Account</h2>
 
-                                    <MDBInput wrapperClass="mb-4" label="Full Name" size="lg" id="fullName" type="text" value={fullName} onChange={(e) => setfullName(e.target.value)} style={solidOutline}/>
+                                    <MDBInput wrapperClass="mb-4" label="Full Name" size="lg" id="fullName" type="text" value={fullName} onChange={(e) => setfullName(e.target.value)} style={solidOutline} />
 
-                                    <MDBInput wrapperClass='mb-4' label='Email Address' size='lg' id='Email' type='email' value={email} onChange={(e) => setEmail(e.target.value)} style={solidOutline}/>
+                                    <MDBInput wrapperClass='mb-4' label='Email Address' size='lg' id='Email' type='email' value={email} onChange={(e) => setEmail(e.target.value)} style={solidOutline} />
 
-                                    <MDBInput wrapperClass='mb-4' label='Phone Number' size='lg' id='phoneNumber' type='text' value={phoneNumber} onChange={(e) => setphoneNumber(e.target.value)} style={solidOutline}/>
+                                    <MDBInput wrapperClass='mb-4' label='Phone Number' size='lg' id='phoneNumber' type='text' value={phoneNumber} onChange={(e) => setphoneNumber(e.target.value)} style={solidOutline} />
 
-                                    <MDBInput wrapperClass='mb-4' label='Rank/Position' size='lg' id='rank' type='text' value={rank} onChange={(e) => setRank(e.target.value)} style={solidOutline}/>
+                                    <MDBInput wrapperClass='mb-4' label='Rank/Position' size='lg' id='rank' type='text' value={rank} onChange={(e) => setRank(e.target.value)} style={solidOutline} />
 
-                                    <MDBInput wrapperClass='mb-4' label='Password' size='lg' id='Password' type='Password' value={password} onChange={(e) => setPassword(e.target.value)} style={solidOutline}/>
+                                    <MDBInput wrapperClass='mb-4' label='Password' size='lg' id='Password' type='Password' value={password} onChange={(e) => setPassword(e.target.value)} style={solidOutline} />
 
-                                    <MDBInput wrapperClass='mb-4' label='Confirm Password' size='lg' id='RePassword' type='Password' value={RePassword} onChange={(e) => setRePassword(e.target.value)} style={solidOutline}/>
+                                    <MDBInput wrapperClass='mb-4' label='Confirm Password' size='lg' id='RePassword' type='Password' value={RePassword} onChange={(e) => setRePassword(e.target.value)} style={solidOutline} />
+
+                                    {/* Success and Error Messages */}
+                                    {successMessage && (
+                                        <div className="alert alert-success mt-4">{successMessage}</div>
+                                    )}
+                                    {errorMessage && (
+                                        <div className="alert alert-danger mt-4">{errorMessage}</div>
+                                    )}
 
                                     <MDBBtn className="mb-4" onClick={submit}>
                                         Create Account
                                     </MDBBtn>
-
                                     <div style={centerText}>
                                         <p >Already have an account? <Link to="/Login">Login</Link></p>
                                     </div>
 
+                                    {/* Success and Error Messages */}
+                                    {successMessage && (
+                                        <div className="alert alert-success mt-4">{successMessage}</div>
+                                    )}
+                                    {errorMessage && (
+                                        <div className="alert alert-danger mt-4">{errorMessage}</div>
+                                    )}
                                 </MDBRow>
                             </MDBCardBody>
                         </MDBCard>
