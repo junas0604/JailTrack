@@ -1,6 +1,8 @@
+// Signup.js
+
 import 'bootstrap/dist/css/bootstrap.css';
 import { Link } from "react-router-dom";
-import React from "react";
+import React, { useState } from "react";
 import {
     MDBContainer,
     MDBRow,
@@ -9,12 +11,34 @@ import {
     MDBInput,
     MDBBtn,
 } from 'mdb-react-ui-kit';
-
+import { auth } from '../config/firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 function Signup() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [fullName, setfullName] = useState('');
+    const [phoneNumber, setphoneNumber] = useState('');
+    const [rank, setRank] = useState('');
+    const [RePassword,setRePassword] = useState('');
 
     async function submit(e) {
         e.preventDefault();
+
+        // Basic email validation using a regular expression
+        const emailRegex = /^\S+@\S+\.\S+$/;
+        if (!emailRegex.test(email)) {
+            alert("Invalid email format. Please enter a valid email address.");
+            return;
+        }
+
+        try {
+            await createUserWithEmailAndPassword(auth, email, password, fullName, phoneNumber, rank, password);
+            // Account creation successful, you can do additional actions here if needed.
+        } catch (error) {
+            console.error("Error creating account:", error);
+            // Handle the error as needed (e.g., display a user-friendly message)
+        }
     }
 
     const formStyle = {
@@ -81,65 +105,17 @@ function Signup() {
                                 <MDBRow>
                                     <h2 className="text-uppercase text-center mb-5">Create Account</h2>
 
-                                    <MDBInput
-                                        wrapperClass="mb-4"
-                                        label="Full Name"
-                                        size="lg"
-                                        id="name"
-                                        type="name"
-                                        placeholder="Full Name"
-                                        style={solidOutline}
-                                    />
+                                    <MDBInput wrapperClass="mb-4" label="Full Name" size="lg" id="fullName" type="text" value={fullName} onChange={(e) => setfullName(e.target.value)} style={solidOutline}/>
 
-                                    <MDBInput
-                                        wrapperClass="mb-4"
-                                        label="Email Address"
-                                        size="lg"
-                                        id="email"
-                                        type="email"
-                                        placeholder="Email Address"
-                                        style={solidOutline}
-                                    />
+                                    <MDBInput wrapperClass='mb-4' label='Email Address' size='lg' id='Email' type='email' value={email} onChange={(e) => setEmail(e.target.value)} style={solidOutline}/>
 
-                                    <MDBInput
-                                        wrapperClass="mb-4"
-                                        label="Phone Number"
-                                        size="lg"
-                                        id="phonenumber"
-                                        type="name"
-                                        placeholder="Phone Number"
-                                        style={solidOutline}
-                                    />
+                                    <MDBInput wrapperClass='mb-4' label='Phone Number' size='lg' id='phoneNumber' type='text' value={phoneNumber} onChange={(e) => setphoneNumber(e.target.value)} style={solidOutline}/>
 
-                                    <MDBInput
-                                        wrapperClass="mb-4"
-                                        label="Rank/Position"
-                                        size="lg"
-                                        id="name"
-                                        type="name"
-                                        placeholder="Rank/Position"
-                                        style={solidOutline}
-                                    />
+                                    <MDBInput wrapperClass='mb-4' label='Rank/Position' size='lg' id='rank' type='text' value={rank} onChange={(e) => setRank(e.target.value)} style={solidOutline}/>
 
-                                    <MDBInput
-                                        wrapperClass="mb-4"
-                                        label="Password"
-                                        size="lg"
-                                        id="password"
-                                        type="password"
-                                        placeholder="Enter Password"
-                                        style={solidOutline}
-                                    />
+                                    <MDBInput wrapperClass='mb-4' label='Password' size='lg' id='Password' type='Password' value={password} onChange={(e) => setPassword(e.target.value)} style={solidOutline}/>
 
-                                    <MDBInput
-                                        wrapperClass="mb-4"
-                                        label="Confirm Password"
-                                        size="lg"
-                                        id="confirmPassword"
-                                        type="password"
-                                        placeholder="Confirm Password"
-                                        style={solidOutline}
-                                    />
+                                    <MDBInput wrapperClass='mb-4' label='Confirm Password' size='lg' id='RePassword' type='Password' value={RePassword} onChange={(e) => setRePassword(e.target.value)} style={solidOutline}/>
 
                                     <MDBBtn className="mb-4" onClick={submit}>
                                         Create Account

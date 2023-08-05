@@ -1,5 +1,5 @@
 
-import Signup from "./components/signup"
+import Signup from "./components/Signup"
 import Settings from "./components/Settings"
 import RightFace from "./components/RightFace"
 import LeftFace from "./components/LeftFace"
