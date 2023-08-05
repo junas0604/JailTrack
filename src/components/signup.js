@@ -10,14 +10,14 @@ import {
     MDBInput,
     MDBBtn,
 } from 'mdb-react-ui-kit';
-import { auth,db } from '../config/firebase';
+import { auth, db } from '../config/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import {addDoc,collection} from "firebase/firestore";
+import { addDoc, collection, query, where, getDocs } from "firebase/firestore";
 
 function Signup() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [fullName, setfullName] = useState('');
+    const [fullName, setFullName] = useState('');
     const [phoneNumber, setphoneNumber] = useState('');
     const [rank, setRank] = useState('');
     const [RePassword, setRePassword] = useState('');
@@ -25,16 +25,6 @@ function Signup() {
     const [errorMessage, setErrorMessage] = useState('');
 
     const CollectionRef = collection(db, "JailTrack")
-    
-
-    async function submit1(e) {
-        e.preventDefault();
-        try{
-        await addDoc(CollectionRef,{email:email,fullName:fullName,password:password,phoneNumber:phoneNumber,rank:rank})
-        }catch(err){
-        console.error(err)
-    }
-    }
 
     async function submit(e) {
         e.preventDefault();
@@ -54,8 +44,19 @@ function Signup() {
             return;
         }
 
+        // Check if the email already exists in the database
+        const querySnapshot = await getDocs(
+            query(CollectionRef, where("email", "==", email))
+        );
+        if (!querySnapshot.empty) {
+            setErrorMessage("Email already exists. Please use a different email address.");
+            setSuccessMessage("");
+            return;
+        }
+
         try {
-            await createUserWithEmailAndPassword(auth, email, password, fullName, phoneNumber, rank);
+            await createUserWithEmailAndPassword(auth, email, password);
+            await addDoc(CollectionRef, { email, fullName, phoneNumber, rank,password});
             setSuccessMessage("You have successfully created an account!");
             setErrorMessage(""); // Clear any previous error message
         } catch (error) {
@@ -130,7 +131,7 @@ function Signup() {
                                 <MDBRow>
                                     <h2 className="text-uppercase text-center mb-5">Create Account</h2>
 
-                                    <MDBInput wrapperClass="mb-4" label="Full Name" size="lg" id="fullName" type="text" value={fullName} onChange={(e) => setfullName(e.target.value)} style={solidOutline} />
+                                    <MDBInput wrapperClass="mb-4" label="Full Name" size="lg" id="fullName" type="text" value={fullName} onChange={(e) => setFullName(e.target.value)} style={solidOutline} />
 
                                     <MDBInput wrapperClass='mb-4' label='Email Address' size='lg' id='Email' type='email' value={email} onChange={(e) => setEmail(e.target.value)} style={solidOutline} />
 
@@ -149,14 +150,14 @@ function Signup() {
                                         <div className="alert alert-danger mt-4">{errorMessage}</div>
                                     )}
 
-                                    <MDBBtn className="mb-4" onClick={submit1}>
+                                    <MDBBtn className="mb-4" onClick={submit}>
                                         Create Account
                                     </MDBBtn>
                                     <div style={centerText}>
                                         <p >Already have an account? <Link to="/Login">Login</Link></p>
                                     </div>
 
-                            
+
                                 </MDBRow>
                             </MDBCardBody>
                         </MDBCard>

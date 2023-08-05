@@ -1,33 +1,34 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import {
-    MDBContainer,
-    MDBInput,
-    MDBCheckbox,
-    MDBBtn,
-    MDBCard,
-    MDBCardBody
-} from "mdb-react-ui-kit";
-function Login() {
+import { Link, useNavigate } from "react-router-dom";
+import { MDBContainer, MDBInput, MDBBtn, MDBCard, MDBCardBody } from "mdb-react-ui-kit";
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../config/firebase';
 
+function Login() {
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [selectedOption, setSelectedOption] = useState('');
-
-    const handleSelect = (event) => {
-        setSelectedOption(event.target.value);
-    };
 
     async function submit(e) {
         e.preventDefault();
+        try {
+            await signInWithEmailAndPassword(auth, email, password);
+            // Handle successful login and redirect to AdminDashboard
+            console.log("Logged in successfully!");
+            navigate("/AdminDashboard");
+        } catch (error) {
+            // Handle login error, e.g., display error message.
+            console.error("Error logging in:", error);
+        }
     }
 
     const formStyle = {
         fontFamily: 'Arial',
     };
+
     return (
-       <form style={formStyle}>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark"style={{height: '65px' }}>
+        <form style={formStyle}>
+          <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{ height: '65px' }}>
                 <a className="navbar-brand" href="/">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Bureau_of_Jail_Management_and_Penology.png" alt="Logo" width="50" height="50" className="d-inline-block align-top" style={{ marginLeft: '20px' }} />
                     <span className="ml-2" style={{ marginLeft: '20px', fontSize: '30px' }}>JAILTRACK</span>
@@ -47,15 +48,13 @@ function Login() {
                     </ul>
                 </div>
             </nav>
-
-
             <div
                 className="bg-image"
                 style={{
                     backgroundImage: `url("https://www.bjmp.gov.ph/images/files/107507100_197367938408005_8328798389745902524_o.jpg")`,
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: 'cover',
-                    height: '110vh',
+                    height: '120vh',
                 }}
             >
                 <div
@@ -66,18 +65,14 @@ function Login() {
                         top: 65,
                         left: 0,
                         width: '100%',
-                        height: '110%',
+                        height: '120%',
                     }}
                 />
-
                 <MDBContainer fluid className="d-flex align-items-center justify-content-center">
                     <div className='mask gradient-custom-3'>
                         <MDBCard className='m-5' style={{ maxWidth: '600px' }}>
                             <MDBCardBody className='px-5 text-center'>
                                 <h2 className="text-uppercase text-center mb-5" style={{ fontWeight: "bold" }}>Login Account</h2>
-
-
-
 
                                 <MDBInput
                                     wrapperClass="mb-4"
@@ -95,37 +90,11 @@ function Login() {
                                     label="Password"
                                     size="lg"
                                     id="Password"
-                                    type="Password"
+                                    type="password"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                     placeholder="Password"
                                 />
-
-
-                                <div>
-                                    <select
-                                        value={selectedOption} onChange={handleSelect}
-                                        style={{ fontSize: "18px", padding: "10px", borderRadius: "5px", width: "320px" }}>
-                                        <option value="Admin">Cebu City Jail</option>
-                                        <option value="Jail Officer">Mandaue City Jail</option>
-                                        <option value="Admin">Talisay City Jail</option>
-                                    </select>
-                                </div>
-
-                                <p>Select Facility</p>
-
-                                <div className="d-flex justify-content-between mx-3 mb-4">
-
-                                    <MDBCheckbox
-                                        name="flexCheck"
-                                        value=""
-                                        id="flexCheckDefault"
-                                        label="Remember me"
-                                    />
-                                    <a href="/ForgotPass" style={{ marginLeft: '30px' }}>Forgot password?</a>
-                                </div>
-
-
 
                                 <MDBBtn className="mb-4" onClick={submit}>
                                     Sign in
@@ -136,14 +105,13 @@ function Login() {
                                         Not a member? <Link to="/signup">Sign up</Link>
                                     </p>
                                 </div>
-
                             </MDBCardBody>
                         </MDBCard>
                     </div>
                 </MDBContainer>
             </div>
-
         </form>
     );
 }
+
 export default Login;
