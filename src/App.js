@@ -1,5 +1,7 @@
 
 import Signup from "./components/Signup"
+import WardenDashBoard from "./components/WardenDashBoard"
+import WardenSignup from "./components/WardenSignup"
 import Settings from "./components/Settings"
 import RightFace from "./components/RightFace"
 import LeftFace from "./components/LeftFace"
@@ -23,6 +25,7 @@ import AdminOfficerRequest from "./components/AdminOfficerRequest"
 import SideBar from "./components/SideBar"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ViewFaceData from "./components/ViewFaceData"
+import WardenLogin from "./components/WardenLogin"
 
 function App() {
   return (
@@ -30,8 +33,11 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Login />} />
+          <Route path="/WardenDashBoard" element={<WardenDashBoard />} />
+          <Route path="/WardenSignup" element={<WardenSignup />} />
           <Route path="/Settings" element={<Settings />} />
           <Route path="/ViewFaceData" element={<ViewFaceData  />} />
+          <Route path="/WardenLogin" element={<WardenLogin  />} />
           <Route path="/RightFace" element={<RightFace />} />
           <Route path="/LeftFace" element={<LeftFace />} />
           <Route path="/FrontFace" element={<FrontFace />} />

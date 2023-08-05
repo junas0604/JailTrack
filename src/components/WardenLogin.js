@@ -4,7 +4,7 @@ import { MDBContainer, MDBInput, MDBBtn, MDBCard, MDBCardBody } from "mdb-react-
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../config/firebase';
 
-function Login() {
+function WardenLogin() {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -15,7 +15,7 @@ function Login() {
             await signInWithEmailAndPassword(auth, email, password);
             // Handle successful login and redirect to AdminDashboard
             console.log("Logged in successfully!");
-            navigate("/AdminDashboard");
+            navigate("/WardenDashboard");
         } catch (error) {
             // Handle login error, e.g., display error message.
             console.error("Error logging in:", error);
@@ -23,15 +23,15 @@ function Login() {
     }
 
     const formStyle = {
-        fontFamily: 'Arial',
+        fontFamily: 'Saira Condensed, sans-serif',
     };
 
     return (
         <form style={formStyle}>
           <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{ height: '65px' }}>
-                <a className="navbar-brand" href="/">
+                <a className="navbar-brand"  href="/WardenLogin">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Bureau_of_Jail_Management_and_Penology.png" alt="Logo" width="50" height="50" className="d-inline-block align-top" style={{ marginLeft: '20px' }} />
-                    <span className="ml-2" style={{ marginLeft: '20px', fontSize: '30px' }}>JAILTRACK</span>
+                    <span className="ml-2" style={{ marginLeft: '20px', fontSize: '30px', fontFamily: 'Saira Condensed, sans-serif' }}>JAILTRACK</span>
 
                 </a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,7 +72,7 @@ function Login() {
                     <div className='mask gradient-custom-3'>
                         <MDBCard className='m-5' style={{ maxWidth: '600px' }}>
                             <MDBCardBody className='px-5 text-center'>
-                                <h2 className="text-uppercase text-center mb-5" style={{ fontWeight: "bold" }}>Login Account</h2>
+                                <h2 className="text-uppercase text-center mb-5" style={{ fontWeight: "bold", fontFamily: 'Saira Condensed, sans-serif' }}>Warden Login Account</h2>
 
                                 <MDBInput
                                     wrapperClass="mb-4"
@@ -102,7 +102,7 @@ function Login() {
 
                                 <div className="text-center">
                                     <p>
-                                        Not a member? <Link to="/signup">Sign up</Link>
+                                        Not a member? <Link to="/WardenSignup">Sign up</Link>
                                     </p>
                                 </div>
                                 <div className="text-center">
@@ -119,4 +119,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default WardenLogin;
