@@ -1,5 +1,4 @@
 // Signup.js
-
 import 'bootstrap/dist/css/bootstrap.css';
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
@@ -11,8 +10,9 @@ import {
     MDBInput,
     MDBBtn,
 } from 'mdb-react-ui-kit';
-import { auth } from '../config/firebase';
+import { auth,db } from '../config/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
+import {addDoc,collection} from "firebase/firestore";
 
 function Signup() {
     const [email, setEmail] = useState('');
@@ -23,6 +23,18 @@ function Signup() {
     const [RePassword, setRePassword] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+
+    const CollectionRef = collection(db, "JailTrack")
+    
+
+    async function submit1(e) {
+        e.preventDefault();
+        try{
+        await addDoc(CollectionRef,{email:email,fullName:fullName,password:password,phoneNumber:phoneNumber,rank:rank})
+        }catch(err){
+        console.error(err)
+    }
+    }
 
     async function submit(e) {
         e.preventDefault();
@@ -130,7 +142,6 @@ function Signup() {
 
                                     <MDBInput wrapperClass='mb-4' label='Confirm Password' size='lg' id='RePassword' type='Password' value={RePassword} onChange={(e) => setRePassword(e.target.value)} style={solidOutline} />
 
-                                    {/* Success and Error Messages */}
                                     {successMessage && (
                                         <div className="alert alert-success mt-4">{successMessage}</div>
                                     )}
@@ -138,20 +149,14 @@ function Signup() {
                                         <div className="alert alert-danger mt-4">{errorMessage}</div>
                                     )}
 
-                                    <MDBBtn className="mb-4" onClick={submit}>
+                                    <MDBBtn className="mb-4" onClick={submit1}>
                                         Create Account
                                     </MDBBtn>
                                     <div style={centerText}>
                                         <p >Already have an account? <Link to="/Login">Login</Link></p>
                                     </div>
 
-                                    {/* Success and Error Messages */}
-                                    {successMessage && (
-                                        <div className="alert alert-success mt-4">{successMessage}</div>
-                                    )}
-                                    {errorMessage && (
-                                        <div className="alert alert-danger mt-4">{errorMessage}</div>
-                                    )}
+                            
                                 </MDBRow>
                             </MDBCardBody>
                         </MDBCard>
