@@ -80,7 +80,7 @@ function WardenDashBoard() {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav" style={{ marginLeft: "1200px" }}>
                         <li className="nav-item">
-                            <a className="nav-link" href="/Login">
+                            <a className="nav-link" href="/WardenLogin">
                                 Logout
                             </a>
                         </li>
