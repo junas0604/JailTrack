@@ -1,20 +1,46 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { MDBContainer, MDBCard, MDBCardBody } from "mdb-react-ui-kit";
-import SideBar from "../components/SideBar";
+import WardenSideBar from "../components/WardenSideBar";
 
-function ScanFace() {
+function WardenAboutUs() {
     const formStyle = {
         fontFamily: "Arial",
     };
 
+    const containerStyle = {
+        display: "flex",
+        height: "100vh",
+        position: "relative",
+    };
+
+    const contentContainerStyle = {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100%",
+        flexDirection: "column",
+    };
+
+    const headingStyle = {
+        textAlign: "center",
+        fontSize: "50px",
+        fontWeight: "bold",
+        marginBottom: "20px",
+    };
+
+    const paragraphStyle = {
+        textAlign: "center",
+        fontSize: "23px",
+        lineHeight: "1.6",
+    };
+
     return (
         <form style={formStyle}>
-           <nav
+            <nav
                 className="navbar navbar-expand-lg navbar-dark bg-dark"
                 style={{ height: "65px" }}
             >
-                <a className="navbar-brand" href="/">
+                <a className="navbar-brand" href="/WardenDashBoard">
                     <img
                         src="https://upload.wikimedia.org/wikipedia/commons/9/97/Bureau_of_Jail_Management_and_Penology.png"
                         alt="Logo"
@@ -41,21 +67,17 @@ function ScanFace() {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav" style={{ marginLeft: "1200px" }}>
                         <li className="nav-item">
-                            <a className="nav-link" href="/Login">
+                            <a className="nav-link" href="/WardenLogin">
                                 Logout
                             </a>
                         </li>
                     </ul>
                 </div>
             </nav>
-            <div
-                style={{
-                    display: "flex",
-                    height: "100vh",
-                    position: "relative",
-                }}
-            >
-                <SideBar />
+
+            <div style={containerStyle}>
+                <WardenSideBar />
+
                 <div
                     className="bg-image"
                     style={{
@@ -66,31 +88,28 @@ function ScanFace() {
                         padding: "25px",
                     }}
                 >
-                    <MDBContainer className="my-5 py-5">
-                        <MDBCard>
-                            <MDBCardBody>
-                      
-                                <div
-                                    style={{
-                                        display: "flex",
-                                        justifyContent: "center",
-                                        alignItems: "center",
-                                        height: "100%",
-                                    }}
-                                >
-                              
-                                    <Link to="/LeftFace">
-                                        <img
-                                            src="camera.png"
-                                            alt="Officer's Face"
-                                            width="700"
-                                            height="700"
-                                            style={{ cursor: "pointer" }}
-                                        />
+                    
 
-                                        
-                                    </Link>
+                    <MDBContainer className="my-5 py-5">
+                        <MDBCard style={{ height: "500px" }}>
+                            <MDBCardBody>
+                        
+                                <div style={contentContainerStyle}>
+                                    <h2 style={headingStyle}>About Us</h2>
+                                    <p style={paragraphStyle}>
+                                        JAILTRACK: A Face Recognition-Based Solution for Attendance Monitoring
+                                        and Shift Scheduling of Jail Officers
+                                    </p>
+                                    <p style={paragraphStyle}>
+                                        Welcome to JAILTRACK, a cutting-edge face recognition-based solution
+                                        designed to revolutionize shift scheduling and attendance monitoring for
+                                        jail officers. Our innovative system harnesses the power of advanced
+                                        facial technology to streamline and enhance the management
+                                        of jail personnel, ensuring a secure and efficient correctional
+                                        facility environment.
+                                    </p>
                                 </div>
+                              
                             </MDBCardBody>
                         </MDBCard>
                     </MDBContainer>
@@ -100,4 +119,4 @@ function ScanFace() {
     );
 }
 
-export default ScanFace;
+export default WardenAboutUs;

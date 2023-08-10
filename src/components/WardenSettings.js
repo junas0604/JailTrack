@@ -1,20 +1,22 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { MDBContainer, MDBCard, MDBCardBody } from "mdb-react-ui-kit";
-import SideBar from "../components/SideBar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleArrowRight } from "@fortawesome/free-solid-svg-icons";
+import WardenSideBar from "../components/WardenSideBar";
+import "react-calendar/dist/Calendar.css";
 
-function ScanFace() {
+function WardenSettings() {
+
     const formStyle = {
         fontFamily: "Arial",
     };
-
     return (
         <form style={formStyle}>
-           <nav
+            <nav
                 className="navbar navbar-expand-lg navbar-dark bg-dark"
                 style={{ height: "65px" }}
             >
-                <a className="navbar-brand" href="/">
+                <a className="navbar-brand" href="/WardenDashboard">
                     <img
                         src="https://upload.wikimedia.org/wikipedia/commons/9/97/Bureau_of_Jail_Management_and_Penology.png"
                         alt="Logo"
@@ -41,7 +43,7 @@ function ScanFace() {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav" style={{ marginLeft: "1200px" }}>
                         <li className="nav-item">
-                            <a className="nav-link" href="/Login">
+                            <a className="nav-link" href="/WardenLogin">
                                 Logout
                             </a>
                         </li>
@@ -55,7 +57,7 @@ function ScanFace() {
                     position: "relative",
                 }}
             >
-                <SideBar />
+                <WardenSideBar />
                 <div
                     className="bg-image"
                     style={{
@@ -66,30 +68,40 @@ function ScanFace() {
                         padding: "25px",
                     }}
                 >
-                    <MDBContainer className="my-5 py-5">
+                    <MDBContainer className="my-10 py-10">
                         <MDBCard>
                             <MDBCardBody>
-                      
-                                <div
-                                    style={{
-                                        display: "flex",
-                                        justifyContent: "center",
-                                        alignItems: "center",
-                                        height: "100%",
-                                    }}
-                                >
-                              
-                                    <Link to="/LeftFace">
-                                        <img
-                                            src="camera.png"
-                                            alt="Officer's Face"
-                                            width="700"
-                                            height="700"
-                                            style={{ cursor: "pointer" }}
-                                        />
+                                <div>
+                                    <h2>Settings</h2>
+                                    <ul style={{ listStyleType: "none" }}>
+                                        <li style={{ fontSize: '30px' }}>
+                                            Edit Profile
+                                            <a href="/WardenProfile">
+                                                <FontAwesomeIcon icon={faCircleArrowRight} style={{ color: "black", marginLeft: "10px" }} />
+                                            </a>
+                                        </li>
 
-                                        
-                                    </Link>
+                                        <li style={{ fontSize: '30px', marginTop: "20px" }}>
+                                            About Us
+                                            <a href="/WardenAboutUs">
+                                                <FontAwesomeIcon icon={faCircleArrowRight} style={{ color: "black", marginLeft: "10px" }} />
+                                            </a>
+                                        </li>
+
+                                        <li style={{ fontSize: '30px', marginTop: "20px" }}>
+                                            User Feedback
+                                            <a href="/WardenUserFeedback">
+                                                <FontAwesomeIcon icon={faCircleArrowRight} style={{ color: "black", marginLeft: "10px" }} />
+                                            </a>
+                                        </li >
+
+                                        <li style={{ fontSize: '30px', marginTop: "20px" }}>
+                                            Log Out
+                                            <a href="/WardenLogin">
+                                                <FontAwesomeIcon icon={faCircleArrowRight} style={{ color: "black", marginLeft: "10px" }} />
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </MDBCardBody>
                         </MDBCard>
@@ -100,4 +112,7 @@ function ScanFace() {
     );
 }
 
-export default ScanFace;
+export default WardenSettings;
+
+
+

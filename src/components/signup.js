@@ -58,11 +58,11 @@ function Signup() {
             await createUserWithEmailAndPassword(auth, email, password);
             await addDoc(CollectionRef, { email, fullName, phoneNumber, rank,password});
             setSuccessMessage("You have successfully created an account!");
-            setErrorMessage(""); // Clear any previous error message
+            setErrorMessage(""); 
         } catch (error) {
             console.error("Error creating account:", error);
             setErrorMessage("Error creating account. Please try again.");
-            setSuccessMessage(""); // Clear any previous success message
+            setSuccessMessage(""); 
         }
     }
 

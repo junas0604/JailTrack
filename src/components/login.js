@@ -13,11 +13,11 @@ function Login() {
         e.preventDefault();
         try {
             await signInWithEmailAndPassword(auth, email, password);
-            // Handle successful login and redirect to AdminDashboard
+         
             console.log("Logged in successfully!");
             navigate("/AdminDashboard");
         } catch (error) {
-            // Handle login error, e.g., display error message.
+         
             console.error("Error logging in:", error);
         }
     }

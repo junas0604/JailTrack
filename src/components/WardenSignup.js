@@ -30,7 +30,7 @@ function WardenSignup() {
     async function submit(e) {
         e.preventDefault();
 
-        // Basic email validation using a regular expression
+       
         const emailRegex = /^\S+@\S+\.\S+$/;
         if (!emailRegex.test(email)) {
             setErrorMessage("Invalid email format. Please enter a valid email address.");
@@ -38,14 +38,13 @@ function WardenSignup() {
             return;
         }
 
-        // Check if the password and re-entered password match
+        
         if (password !== RePassword) {
             setErrorMessage("Password and Confirm Password do not match.");
             setSuccessMessage("");
             return;
         }
 
-        // Check if the email already exists in the database
         const querySnapshot = await getDocs(
             query(CollectionRef, where("email", "==", email))
         );
@@ -60,11 +59,11 @@ function WardenSignup() {
             await addDoc(CollectionRef1, { email, fullName, phoneNumber, rank,password});
             await addDoc(CollectionRef, { email, fullName, phoneNumber, rank,password});
             setSuccessMessage("You have successfully created an account!");
-            setErrorMessage(""); // Clear any previous error message
+            setErrorMessage(""); 
         } catch (error) {
             console.error("Error creating account:", error);
             setErrorMessage("Error creating account. Please try again.");
-            setSuccessMessage(""); // Clear any previous success message
+            setSuccessMessage("");
         }
     }
 

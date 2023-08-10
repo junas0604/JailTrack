@@ -91,7 +91,7 @@ function Settings() {
 
                     <li style={{ fontSize: '30px', marginTop: "20px" }}>
                       User Feedback
-                      <a href="/ViewFaceData">
+                      <a href="/AdminUserFeedback">
                         <FontAwesomeIcon icon={faCircleArrowRight} style={{ color: "black", marginLeft: "10px" }} />
                       </a>
                     </li >

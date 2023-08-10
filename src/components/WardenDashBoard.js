@@ -8,7 +8,7 @@ import {
     MDBTableHead,
     MDBTableBody,
 } from "mdb-react-ui-kit";
-import SideBar from "./SideBar"
+import  WardenSideBar from "./WardenSideBar"
 
 function WardenDashBoard() {
 
@@ -53,7 +53,7 @@ function WardenDashBoard() {
                 className="navbar navbar-expand-lg navbar-dark bg-dark"
                 style={{ height: "65px" }}
             >
-                <a className="navbar-brand" href="/">
+                <a className="navbar-brand" href="/WardenDashboard">
                     <img
                         src="https://upload.wikimedia.org/wikipedia/commons/9/97/Bureau_of_Jail_Management_and_Penology.png"
                         alt="Logo"
@@ -94,7 +94,7 @@ function WardenDashBoard() {
                     position: "relative",
                 }}
             >
-                <SideBar />
+                <WardenSideBar />
 
                 <div
                     className="bg-image"
@@ -104,7 +104,7 @@ function WardenDashBoard() {
                         backgroundSize: "cover",
                         flex: 1,
                         padding: "25px",
-                        height: "830px"
+                        height: "934px"
                     }}
                 >
                     <MDBContainer className="my-10 py-10">

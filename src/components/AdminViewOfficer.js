@@ -28,48 +28,48 @@ function AdminViewOfficer() {
 
   return (
     <form style={formStyle}>
-       <nav
-                className="navbar navbar-expand-lg navbar-dark bg-dark"
-                style={{ height: "65px" }}
-            >
-                <a className="navbar-brand" href="/">
-                    <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/9/97/Bureau_of_Jail_Management_and_Penology.png"
-                        alt="Logo"
-                        width="50"
-                        height="50"
-                        className="d-inline-block align-top"
-                        style={{ marginLeft: "20px" }}
-                    />
-                    <span className="ml-2" style={{ marginLeft: "20px", fontSize: "30px" }}>
-                        JAILTRACK
-                    </span>
-                </a>
-                <button
-                    className="navbar-toggler"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#navbarNav"
-                    aria-controls="navbarNav"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav" style={{ marginLeft: "1200px" }}>
-                        <li className="nav-item">
-                            <a className="nav-link" href="/Login">
-                                Logout
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+      <nav
+        className="navbar navbar-expand-lg navbar-dark bg-dark"
+        style={{ height: "65px" }}
+      >
+        <a className="navbar-brand" href="/">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/9/97/Bureau_of_Jail_Management_and_Penology.png"
+            alt="Logo"
+            width="50"
+            height="50"
+            className="d-inline-block align-top"
+            style={{ marginLeft: "20px" }}
+          />
+          <span className="ml-2" style={{ marginLeft: "20px", fontSize: "30px" }}>
+            JAILTRACK
+          </span>
+        </a>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav" style={{ marginLeft: "1200px" }}>
+            <li className="nav-item">
+              <a className="nav-link" href="/Login">
+                Logout
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
       <div
         style={{
           display: "flex",
-          height: "100vh",
+          height: "120vh",
           position: "relative",
         }}
       >
@@ -108,7 +108,7 @@ function AdminViewOfficer() {
                     maxWidth: "600px",
                     backgroundColor: "white",
                     marginTop: "50px",
-                    marginRight: "10px", // Adjusted margin
+                    marginRight: "10px",
                   }}
                 >
                   <MDBCardBody>
@@ -216,7 +216,7 @@ function AdminViewOfficer() {
                   </MDBCardBody>
                 </MDBCard>
 
-                {/* Officer 2 */}
+
                 <MDBCard
                   style={{
                     marginTop: "-465px",

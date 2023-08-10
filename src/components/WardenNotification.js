@@ -1,20 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { MDBContainer, MDBCard, MDBCardBody } from "mdb-react-ui-kit";
-import SideBar from "../components/SideBar";
 
-function ScanFace() {
+import {
+    MDBContainer,
+    MDBCard,
+    MDBCardBody,
+} from "mdb-react-ui-kit";
+import WardenSideBar from "../components/WardenSideBar"
+
+function WardenNotification() {
+
     const formStyle = {
         fontFamily: "Arial",
     };
-
     return (
         <form style={formStyle}>
-           <nav
+            <nav
                 className="navbar navbar-expand-lg navbar-dark bg-dark"
                 style={{ height: "65px" }}
             >
-                <a className="navbar-brand" href="/">
+                <a className="navbar-brand" href="/WardenDashboard">
                     <img
                         src="https://upload.wikimedia.org/wikipedia/commons/9/97/Bureau_of_Jail_Management_and_Penology.png"
                         alt="Logo"
@@ -41,7 +46,7 @@ function ScanFace() {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav" style={{ marginLeft: "1200px" }}>
                         <li className="nav-item">
-                            <a className="nav-link" href="/Login">
+                            <a className="nav-link" href="/WardenLogin">
                                 Logout
                             </a>
                         </li>
@@ -55,7 +60,8 @@ function ScanFace() {
                     position: "relative",
                 }}
             >
-                <SideBar />
+                <WardenSideBar />
+
                 <div
                     className="bg-image"
                     style={{
@@ -66,31 +72,27 @@ function ScanFace() {
                         padding: "25px",
                     }}
                 >
-                    <MDBContainer className="my-5 py-5">
+                    <MDBContainer className="my-10 py-10">
                         <MDBCard>
                             <MDBCardBody>
-                      
-                                <div
-                                    style={{
-                                        display: "flex",
-                                        justifyContent: "center",
-                                        alignItems: "center",
-                                        height: "100%",
-                                    }}
-                                >
-                              
-                                    <Link to="/LeftFace">
-                                        <img
-                                            src="camera.png"
-                                            alt="Officer's Face"
-                                            width="700"
-                                            height="700"
-                                            style={{ cursor: "pointer" }}
-                                        />
-
-                                        
-                                    </Link>
+                                <div style={{ backgroundColor: "skyblue", padding: "10px", marginBottom: "20px" }}>
+                                    <h2 style={{ textAlign: "center", margin: 0, color: "white" }}>Notifications</h2>
                                 </div>
+
+
+                                <div style={{ marginBottom: "20px", padding: "10px", backgroundColor: "#D9D9D9" }}>
+                                    <h3 style={{ color: "#000000", marginBottom: "10px" }}>Notification 1</h3>
+                                    <p style={{ color: "#000000" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non hendrerit nisl, nec dignissim mauris.</p>
+                                </div>
+
+                                <div className="notification" style={{ marginBottom: "20px", padding: "10px", backgroundColor: "#D9D9D9" }}>
+                                    <h3 style={{ color: "#000000", marginBottom: "10px" }}>Notification 2</h3>
+                                    <p style={{ color: "#000000" }}>Sed feugiat, sapien ut fringilla iaculis, metus lacus placerat ipsum.</p>
+                                </div>
+
+                            
+
+
                             </MDBCardBody>
                         </MDBCard>
                     </MDBContainer>
@@ -100,4 +102,4 @@ function ScanFace() {
     );
 }
 
-export default ScanFace;
+export default WardenNotification;

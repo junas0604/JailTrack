@@ -93,7 +93,7 @@ function AboutUs() {
                     <MDBContainer className="my-5 py-5">
                         <MDBCard style={{ height: "500px" }}>
                             <MDBCardBody>
-                                {/* About Us Content */}
+                        
                                 <div style={contentContainerStyle}>
                                     <h2 style={headingStyle}>About Us</h2>
                                     <p style={paragraphStyle}>
@@ -109,7 +109,7 @@ function AboutUs() {
                                         facility environment.
                                     </p>
                                 </div>
-                                {/* End of About Us Content */}
+                              
                             </MDBCardBody>
                         </MDBCard>
                     </MDBContainer>

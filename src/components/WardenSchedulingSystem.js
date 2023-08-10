@@ -1,20 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { MDBContainer, MDBCard, MDBCardBody } from "mdb-react-ui-kit";
-import SideBar from "../components/SideBar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import WardenSideBar from "../components/WardenSideBar";
 
-function ScanFace() {
+function WardenSchedulingSystem() {
     const formStyle = {
         fontFamily: "Arial",
     };
 
     return (
         <form style={formStyle}>
-           <nav
+            <nav
                 className="navbar navbar-expand-lg navbar-dark bg-dark"
                 style={{ height: "65px" }}
             >
-                <a className="navbar-brand" href="/">
+                <a className="navbar-brand" href="/WardenDashboard">
                     <img
                         src="https://upload.wikimedia.org/wikipedia/commons/9/97/Bureau_of_Jail_Management_and_Penology.png"
                         alt="Logo"
@@ -41,7 +43,7 @@ function ScanFace() {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav" style={{ marginLeft: "1200px" }}>
                         <li className="nav-item">
-                            <a className="nav-link" href="/Login">
+                            <a className="nav-link" href="/WardenLogin">
                                 Logout
                             </a>
                         </li>
@@ -55,7 +57,8 @@ function ScanFace() {
                     position: "relative",
                 }}
             >
-                <SideBar />
+                <WardenSideBar />
+
                 <div
                     className="bg-image"
                     style={{
@@ -66,31 +69,29 @@ function ScanFace() {
                         padding: "25px",
                     }}
                 >
-                    <MDBContainer className="my-5 py-5">
+                    <MDBContainer className="my-10 py-10">
                         <MDBCard>
                             <MDBCardBody>
-                      
-                                <div
-                                    style={{
-                                        display: "flex",
-                                        justifyContent: "center",
-                                        alignItems: "center",
-                                        height: "100%",
-                                    }}
-                                >
-                              
-                                    <Link to="/LeftFace">
-                                        <img
-                                            src="camera.png"
-                                            alt="Officer's Face"
-                                            width="700"
-                                            height="700"
-                                            style={{ cursor: "pointer" }}
-                                        />
 
-                                        
+                                <div style={{ marginTop: "20px", display: "flex", alignItems: "center" }}>
+                                    <span style={{ flex: 1 }}>
+                                        View Shift Schedule
+                                    </span>
+                                    <Link to="/WardenShiftSchedule">
+                                        <FontAwesomeIcon icon={faChevronRight} />
                                     </Link>
                                 </div>
+
+
+                                <div style={{ marginTop: "20px", display: "flex", alignItems: "center" }}>
+                                    <span style={{ flex: 1 }}>
+                                        View Officer Attendance
+                                    </span>
+                                    <Link to="/WardenAttendanceList">
+                                        <FontAwesomeIcon icon={faChevronRight} />
+                                    </Link>
+                                </div>
+                                <div style={{ marginTop: '-10px', marginLeft: "700px", height: "500px", width: "500px", background: `url('/calBack.png')`, filter: "blur(10px)" }} />
                             </MDBCardBody>
                         </MDBCard>
                     </MDBContainer>
@@ -100,4 +101,5 @@ function ScanFace() {
     );
 }
 
-export default ScanFace;
+
+export default WardenSchedulingSystem;

@@ -3,64 +3,30 @@ import {
     MDBContainer,
     MDBCard,
     MDBCardBody,
+    MDBInput,
+    MDBBtn,
 } from "mdb-react-ui-kit";
-import SideBar from "../components/SideBar"
+import SideBar from "../components/SideBar";
 
 function ViewFaceData() {
 
-    
     const formStyle = {
         fontFamily: "Arial",
     };
+
     return (
         <form style={formStyle}>
-            <nav
-                className="navbar navbar-expand-lg navbar-dark bg-dark"
-                style={{ height: "65px" }}
-            >
-                <a className="navbar-brand" href="/">
-                    <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/9/97/Bureau_of_Jail_Management_and_Penology.png"
-                        alt="Logo"
-                        width="50"
-                        height="50"
-                        className="d-inline-block align-top"
-                        style={{ marginLeft: "20px" }}
-                    />
-                    <span className="ml-2" style={{ marginLeft: "20px", fontSize: "30px" }}>
-                        JAILTRACK
-                    </span>
-                </a>
-                <button
-                    className="navbar-toggler"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#navbarNav"
-                    aria-controls="navbarNav"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav" style={{ marginLeft: "1200px" }}>
-                        <li className="nav-item">
-                            <a className="nav-link" href="/Login">
-                                Logout
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+            {/* ... Your navbar code ... */}
+
             <div
                 style={{
                     display: "flex",
                     height: "100vh",
-                    position: "relative", // Add this to make the child divs position relative to the parent
+                    position: "relative",
                 }}
             >
                 <SideBar />
-                {/* Main content area */}
+
                 <div
                     className="bg-image"
                     style={{
@@ -74,8 +40,60 @@ function ViewFaceData() {
                     <MDBContainer className="my-5 py-5">
                         <MDBCard>
                             <MDBCardBody>
+                                <div style={{ display: "flex", justifyContent: "space-between" }}>
+                                    <div style={{ flex: 1 }}>
+                                        <h4>Face Data</h4>
+                                        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginBottom: "20px" }}>
+                                            <label>Left Face</label>
+                                            <img
+                                                src="l.png"
+                                                alt="Left Angle"
+                                                style={{ maxWidth: "150px", marginBottom: "10px" }}
+                                            />
+                                            <label>Right Face</label>
+                                            <img
+                                                src="r.png"
+                                                alt="Right Angle"
+                                                style={{ maxWidth: "150px", marginBottom: "10px" }}
+                                            />
+                                            <label>Front Face</label>
+                                            <img
+                                                src="f.png"
+                                                alt="Front Angle"
+                                                style={{ maxWidth: "155px" }}
+                                            />
+                                        </div>
+                                    </div>
+                                    <div style={{ flex: 1 }}>
+                                        <div style={{ marginBottom: "20px" }}>
+                                            <h4>User ID</h4>
+                                            <MDBInput type="text" value="12345" readOnly />
+                                        </div>
+                                        <div style={{ marginBottom: "20px" }}>
+                                            <h4>Full Name</h4>
+                                            <MDBInput type="text" value="John Doe" readOnly />
+                                        </div>
+                                        <div style={{ marginBottom: "20px" }}>
+                                            <h4>Officer Rank</h4>
+                                            <MDBInput type="text" value="Jail Officer 1" readOnly />
+                                        </div>
+                                        <div style={{ marginBottom: "20px" }}>
+                                            <h4>Email Address</h4>
+                                            <MDBInput type="text" value="john@gmail.com" readOnly />
+                                        </div>
+                                        <div style={{ marginBottom: "20px" }}>
+                                            <h4>Contact Number</h4>
+                                            <MDBInput type="text" value="+639568452121" readOnly />
+                                        </div>
+                                        <div style={{ display: "flex", justifyContent: "space-between" }}>
+                                            <MDBBtn color="danger">Delete Facial Data</MDBBtn>
+                                            <MDBBtn color="success">Done</MDBBtn>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
                             </MDBCardBody>
-                           </MDBCard>     
+                        </MDBCard>
                     </MDBContainer>
                 </div>
             </div>
@@ -84,6 +102,3 @@ function ViewFaceData() {
 }
 
 export default ViewFaceData;
-
-
-

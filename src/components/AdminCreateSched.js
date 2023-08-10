@@ -260,21 +260,21 @@ function AdminCreateSched() {
                       <td style={{ border: "2px solid black" }}>JO2 Gutib</td>
                       <td style={{ backgroundColor: "Green", border: "2px solid black" }}>Duty</td>
                       <td style={{ backgroundColor: "Green", border: "2px solid black" }}>Duty</td>
-                      <td style={{ border: "2px solid black" }}>Duty</td>
-                      <td style={{ backgroundColor: "Green", border: "2px solid black" }}></td>
                       <td style={{ border: "2px solid black" }}></td>
-                      <td style={{ backgroundColor: "Green", border: "2px solid black" }}></td>
-                      <td style={{ backgroundColor: "Green", border: "2px solid black" }}></td>
+                      <td style={{ backgroundColor: "Green", border: "2px solid black" }}>Duty</td>
+                      <td style={{ border: "2px solid black" }}></td>
+                      <td style={{ backgroundColor: "Green", border: "2px solid black" }}>Duty</td>
+                      <td style={{ backgroundColor: "Green", border: "2px solid black" }}>Duty</td>
                     </tr>
                     <tr style={{ border: "2px solid black" }}>
                       <td style={{ border: "2px solid black" }}>JO1 Rocaberte</td>
-                      <td style={{ border: "2px solid black" }}>Duty</td>
-                      <td style={{ border: "2px solid black" }}>Duty</td>
+                      <td style={{ border: "2px solid black" }}></td>
+                      <td style={{ border: "2px solid black" }}></td>
                       <td style={{ backgroundColor: "Green", border: "2px solid black" }}>Duty</td>
-                      <td style={{ border: "2px solid black" }}>Duty</td>
+                      <td style={{ border: "2px solid black" }}></td>
                       <td style={{ backgroundColor: "Green", border: "2px solid black" }}>Duty</td>
-                      <td style={{ border: "2px solid black" }}>Duty</td>
-                      <td style={{ border: "2px solid black" }}>Duty</td>
+                      <td style={{ border: "2px solid black" }}></td>
+                      <td style={{ border: "2px solid black" }}></td>
                     </tr>
                   </MDBTableBody>
                 </MDBTable>
