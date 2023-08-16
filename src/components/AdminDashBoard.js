@@ -186,7 +186,7 @@ function AdminDashBoard() {
                                 <MDBCard
                                     style={{ width: "19%", maxWidth: "600px", backgroundColor: "#146CA4", marginTop: '-155px', marginLeft: '250px' }}
                                 >
-                                    <Link to="/NewPassword" style={{ textDecoration: "none", color: "black" }}>
+                                    <Link to="/AdminViewOfficer" style={{ textDecoration: "none", color: "black" }}>
                                         <MDBCardBody style={{ width: "100%" }}>
                                             View Officer on Duty{" "}
                                             <p></p>
