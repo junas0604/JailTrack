@@ -145,7 +145,7 @@ function WardenDashBoard() {
                                 <MDBCard style={{ width: "19%", maxWidth: "600px", backgroundColor: "#242444", marginTop: '-155px', marginLeft: '250px' }}>
 
                                     <MDBCardBody style={{ width: "100%", color: "black" }}>
-                                        Face Recognition{" "}
+                                        Approve Applications{" "}
                                         <p></p>
                                         <img
                                             src="/jailSup.png"
@@ -171,7 +171,7 @@ function WardenDashBoard() {
 
 
                                 <MDBCard style={{ width: "19%", maxWidth: "600px", backgroundColor: "#146CA4", marginTop: '-155px', marginLeft: '250px' }}>
-                                    <Link to="/NewPassword" style={{ textDecoration: "none", color: "black" }}>
+                                    <Link to="/WardenViewOfficer" style={{ textDecoration: "none", color: "black" }}>
                                         <MDBCardBody style={{ width: "100%" }}>
                                             View Officer on Duty{" "}
                                             <p></p>

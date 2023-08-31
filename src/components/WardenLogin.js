@@ -28,11 +28,10 @@ function WardenLogin() {
 
     return (
         <form style={formStyle}>
-          <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{ height: '65px' }}>
-                <a className="navbar-brand"  href="/WardenLogin">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Bureau_of_Jail_Management_and_Penology.png" alt="Logo" width="50" height="50" className="d-inline-block align-top" style={{ marginLeft: '20px' }} />
-                    <span className="ml-2" style={{ marginLeft: '20px', fontSize: '30px', fontFamily: 'Saira Condensed, sans-serif' }}>JAILTRACK</span>
-
+          <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{ height: '80px' }}>
+                <a className="navbar-brand" href="/">
+                <img src="/JTLOGO.png" alt="login" style={{ height: "110px", width: "150px" }} />
+                    <span className="ml-2" style={{marginTop: '100px',marginLeft: '-15px', fontSize: '35px' }}>JAILTRACK</span>
                 </a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -54,7 +53,7 @@ function WardenLogin() {
                     backgroundImage: `url("https://www.bjmp.gov.ph/images/files/107507100_197367938408005_8328798389745902524_o.jpg")`,
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: 'cover',
-                    height: '120vh',
+                    height: '115vh',
                 }}
             >
                 <div
@@ -62,7 +61,7 @@ function WardenLogin() {
                     style={{
                         backgroundColor: 'rgba(0, 0, 0, 0.6)',
                         position: 'absolute',
-                        top: 65,
+                        top: 80,
                         left: 0,
                         width: '100%',
                         height: '120%',
@@ -100,11 +99,6 @@ function WardenLogin() {
                                     Sign in
                                 </MDBBtn>
 
-                                <div className="text-center">
-                                    <p>
-                                        Not a member? <Link to="/WardenSignup">Sign up</Link>
-                                    </p>
-                                </div>
                                 <div className="text-center">
                                     <p>
                                      <Link to="/ForgotPass">Forgot Password</Link>

@@ -1,12 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-    MDBContainer,
-    MDBCard,
-    MDBCardBody,
-    MDBModal,
-    MDBModalBody,
-    MDBModalHeader,
-} from "mdb-react-ui-kit";
+import { MDBContainer, MDBCard,  MDBCardBody, MDBModal, MDBModalBody,  MDBModalHeader } from "mdb-react-ui-kit";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 import SideBar from "../components/SideBar";
@@ -62,16 +55,16 @@ function AdminRequestSchedSystem() {
 
     const handleSaveTeam = async () => {
         try {
-            const selectedOfficersData = officersList.filter(officer =>
-                selectedOfficers.includes(officer.fullName)
-            );
+            const selectedOfficersData = selectedOfficers.map(officerFullName => ({
+                fullName: officerFullName
+            }));
 
             const teamRef = await addDoc(collection(db, "Teams"), {
                 teamName,
                 officers: selectedOfficersData,
             });
 
-            console.log("Team added with ID: ", teamRef.fullName);
+            console.log("Team added with ID: ", teamRef.id);
 
             setTeamNamesList([...teamNamesList, teamName]);
             toggleModal();
@@ -79,6 +72,7 @@ function AdminRequestSchedSystem() {
             console.error("Error adding team: ", error);
         }
     };
+
 
     const handleDeleteTeam = (index) => {
         const updatedTeamNamesList = [...teamNamesList];
@@ -88,11 +82,43 @@ function AdminRequestSchedSystem() {
 
     return (
         <form style={formStyle}>
-             <nav
+           <nav
                 className="navbar navbar-expand-lg navbar-dark bg-dark"
                 style={{ height: "65px" }}
             >
-                {/* ... (navbar JSX) */}
+                <a className="navbar-brand" href="/">
+                    <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/9/97/Bureau_of_Jail_Management_and_Penology.png"
+                        alt="Logo"
+                        width="50"
+                        height="50"
+                        className="d-inline-block align-top"
+                        style={{ marginLeft: "20px" }}
+                    />
+                    <span className="ml-2" style={{ marginLeft: "20px", fontSize: "30px" }}>
+                        JAILTRACK
+                    </span>
+                </a>
+                <button
+                    className="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+                <div className="collapse navbar-collapse" id="navbarNav">
+                    <ul className="navbar-nav" style={{ marginLeft: "1200px" }}>
+                        <li className="nav-item">
+                            <a className="nav-link" href="/Login">
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </nav>
             <div style={{ display: "flex", height: "100vh", position: "relative" }}>
                 <SideBar />
