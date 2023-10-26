@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { MDBContainer, MDBInput, MDBBtn, MDBCard, MDBCardBody } from "mdb-react-ui-kit";
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth'; // Corrected import
 import { auth } from '../config/firebase';
 
 function Login() {
@@ -12,12 +12,10 @@ function Login() {
     async function submit(e) {
         e.preventDefault();
         try {
-            await signInWithEmailAndPassword(auth, email, password);
-         
+            await signInWithEmailAndPassword(auth, email, password); // Correcte    d method
             console.log("Logged in successfully!");
             navigate("/AdminDashboard");
         } catch (error) {
-         
             console.error("Error logging in:", error);
         }
     }

@@ -3,6 +3,7 @@
 import WardenUserFeedback from "./components/WardenUserFeedback"
 import WardenAboutUs from "./components/WardenAboutUs"
 import WardenProfile from "./components/WardenProfile"
+import WardenEditProfile from "./components/WardenEditProfile"
 import WardenSettings from "./components/WardenSettings"
 import WardenRequestFileChange from "./components/WardenRequestFileChange"
 import WardenFileShiftChange from "./components/WardenFileShiftChange"
@@ -37,12 +38,12 @@ import ForgotPassCode from "./components/ForgotPassCode"
 import NewPassword from "./components/NewPassword"
 import AdminOfficerRequest from "./components/AdminOfficerRequest"
 import SideBar from "./components/SideBar"
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ViewFaceData from "./components/ViewFaceData"
 import WardenLogin from "./components/WardenLogin"
 import AboutUs from "./components/AboutUs"
 
 
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/WardenUserFeedback" element={<WardenUserFeedback />} />
           <Route path="/WardenAboutUs" element={<WardenAboutUs />} />
+          <Route path="/WardenEditProfile" element={<WardenEditProfile />} />
           <Route path="/WardenProfile" element={<WardenProfile />} />
           <Route path="/WardenSettings" element={<WardenSettings />} />
           <Route path="/WardenRequestFileChange" element={<WardenRequestFileChange />} />

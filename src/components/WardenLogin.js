@@ -28,7 +28,7 @@ function WardenLogin() {
 
     return (
         <form style={formStyle}>
-          <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{ height: '80px' }}>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{ height: '80px' }}>
                 <a className="navbar-brand" href="/">
                 <img src="/JTLOGO.png" alt="login" style={{ height: "110px", width: "150px" }} />
                     <span className="ml-2" style={{marginTop: '100px',marginLeft: '-15px', fontSize: '35px' }}>JAILTRACK</span>
@@ -39,10 +39,10 @@ function WardenLogin() {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav" style={{ marginLeft: '1000px' }}>
                         <li className="nav-item">
-                            <a className="nav-link" href="/Login">Login</a>
+                            <a className="nav-link" href="/WardenLogin">Login</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/Signup">Registration</a>
+                            <a className="nav-link" href="/WardenSignup">Registration</a>
                         </li>
                     </ul>
                 </div>

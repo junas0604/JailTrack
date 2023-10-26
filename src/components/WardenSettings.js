@@ -74,9 +74,17 @@ function WardenSettings() {
                                 <div>
                                     <h2>Settings</h2>
                                     <ul style={{ listStyleType: "none" }}>
-                                        <li style={{ fontSize: '30px' }}>
-                                            Edit Profile
+
+                                    <li style={{ fontSize: '30px' }}>
+                                            View Profile
                                             <a href="/WardenProfile">
+                                                <FontAwesomeIcon icon={faCircleArrowRight} style={{ color: "black", marginLeft: "10px" }} />
+                                            </a>
+                                        </li>
+
+                                        <li style={{ fontSize: '30px' , marginTop: "20px"  }}>
+                                            Edit Profile
+                                            <a href="/WardenEditProfile">
                                                 <FontAwesomeIcon icon={faCircleArrowRight} style={{ color: "black", marginLeft: "10px" }} />
                                             </a>
                                         </li>

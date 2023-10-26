@@ -49,7 +49,7 @@ function WardenDashBoard() {
     };
     return (
         <form style={formStyle}>
-            <nav
+             <nav
                 className="navbar navbar-expand-lg navbar-dark bg-dark"
                 style={{ height: "65px" }}
             >

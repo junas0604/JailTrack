@@ -1,4 +1,3 @@
-// Signup.js
 import 'bootstrap/dist/css/bootstrap.css';
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
@@ -12,24 +11,26 @@ import {
 } from 'mdb-react-ui-kit';
 import { auth, db } from '../config/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { addDoc, collection, query, where, getDocs } from "firebase/firestore";
+import { setDoc, collection, doc, getDocs, where, query } from 'firebase/firestore';
 
 function Signup() {
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [fullName, setFullName] = useState('');
-    const [phoneNumber, setphoneNumber] = useState('');
+    const [firstName,setFirstName] = useState('');
+    const [lastName,setLastName] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('');
     const [rank, setRank] = useState('');
+    const [address, setAddress] = useState('');
     const [RePassword, setRePassword] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
-    const CollectionRef = collection(db, "JailTrack")
+    const CollectionRef = collection(db, "JailAdmin");
 
     async function submit(e) {
         e.preventDefault();
 
-        // Basic email validation using a regular expression
         const emailRegex = /^\S+@\S+\.\S+$/;
         if (!emailRegex.test(email)) {
             setErrorMessage("Invalid email format. Please enter a valid email address.");
@@ -37,14 +38,12 @@ function Signup() {
             return;
         }
 
-        // Check if the password and re-entered password match
         if (password !== RePassword) {
             setErrorMessage("Password and Confirm Password do not match.");
             setSuccessMessage("");
             return;
         }
 
-        // Check if the email already exists in the database
         const querySnapshot = await getDocs(
             query(CollectionRef, where("email", "==", email))
         );
@@ -55,19 +54,39 @@ function Signup() {
         }
 
         try {
-            await createUserWithEmailAndPassword(auth, email, password);
-            await addDoc(CollectionRef, { email, fullName, phoneNumber, rank,password});
-            setSuccessMessage("You have successfully created an account!");
-            setErrorMessage(""); 
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+
+            await setDoc(doc(db, "JailAdmin", user.uid), {
+                uid: user.uid,
+                firstName,
+                lastName,
+                email,
+                password,
+                phoneNumber,
+                rank,
+                address,
+               
+            });
+
+            console.log('Document successfully written and user registered!');
+            setFirstName('');
+            setLastName('');
+            setEmail('');
+            setPassword('');
+            setPhoneNumber('');
+            setRank('');
+            setAddress('');
+            setRePassword('');
+            setSuccessMessage("Successfully registered!");
         } catch (error) {
-            console.error("Error creating account:", error);
-            setErrorMessage("Error creating account. Please try again.");
-            setSuccessMessage(""); 
+            console.error('Error creating account:', error);
+            setErrorMessage(error.message);
         }
     }
 
     const formStyle = {
-        fontFamily: 'Arial'
+        fontFamily: 'Arial',
     };
 
     const solidOutline = {
@@ -82,11 +101,10 @@ function Signup() {
 
     return (
         <form style={formStyle}>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{ height: '65px' }}>
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{ height: '80px' }}>
                 <a className="navbar-brand" href="/">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Bureau_of_Jail_Management_and_Penology.png" alt="Logo" width="50" height="50" className="d-inline-block align-top" style={{ marginLeft: '20px' }} />
-                    <span className="ml-2" style={{ marginLeft: '20px', fontSize: '30px' }}>JAILTRACK</span>
-
+                    <img src="/JTLOGO.png" alt="login" style={{ height: "110px", width: "150px" }} />
+                    <span className="ml-2" style={{ marginTop: '100px', marginLeft: '-15px', fontSize: '35px' }}>JAILTRACK</span>
                 </a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -108,7 +126,7 @@ function Signup() {
                     backgroundImage: `url("https://www.bjmp.gov.ph/images/files/107507100_197367938408005_8328798389745902524_o.jpg")`,
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: 'cover',
-                    height: '120vh',
+                    height: '160vh',
                 }}
             >
                 <div
@@ -116,13 +134,12 @@ function Signup() {
                     style={{
                         backgroundColor: 'rgba(0, 0, 0, 0.6)',
                         position: 'absolute',
-                        top: 65,
+                        top: 80,
                         left: 0,
                         width: '100%',
-                        height: '120%',
+                        height: '160%',
                     }}
                 />
-
 
                 <MDBContainer fluid className='d-flex align-items-center justify-content-center bg-image'>
                     <div className='mask gradient-custom-3'>
@@ -131,17 +148,22 @@ function Signup() {
                                 <MDBRow>
                                     <h2 className="text-uppercase text-center mb-5">Create Account</h2>
 
-                                    <MDBInput wrapperClass="mb-4" label="Full Name" size="lg" id="fullName" type="text" value={fullName} onChange={(e) => setFullName(e.target.value)} style={solidOutline} />
+                                    
+                                    <MDBInput wrapperClass="mb-4" label="First Name" size="lg" id="firstName" type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} style={solidOutline} />
+
+                                    <MDBInput wrapperClass="mb-4" label="Last Name" size="lg" id="fullName" type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} style={solidOutline} />
 
                                     <MDBInput wrapperClass='mb-4' label='Email Address' size='lg' id='Email' type='email' value={email} onChange={(e) => setEmail(e.target.value)} style={solidOutline} />
 
-                                    <MDBInput wrapperClass='mb-4' label='Phone Number' size='lg' id='phoneNumber' type='text' value={phoneNumber} onChange={(e) => setphoneNumber(e.target.value)} style={solidOutline} />
+                                    <MDBInput wrapperClass='mb-4' label='Phone Number' size='lg' id='phoneNumber' type='text' value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} style={solidOutline} />
 
                                     <MDBInput wrapperClass='mb-4' label='Rank/Position' size='lg' id='rank' type='text' value={rank} onChange={(e) => setRank(e.target.value)} style={solidOutline} />
 
-                                    <MDBInput wrapperClass='mb-4' label='Password' size='lg' id='Password' type='Password' value={password} onChange={(e) => setPassword(e.target.value)} style={solidOutline} />
+                                    <MDBInput wrapperClass='mb-4' label='Address' size='lg' id='address' type='text' value={address} onChange={(e) => setAddress(e.target.value)} style={solidOutline} />
 
-                                    <MDBInput wrapperClass='mb-4' label='Confirm Password' size='lg' id='RePassword' type='Password' value={RePassword} onChange={(e) => setRePassword(e.target.value)} style={solidOutline} />
+                                    <MDBInput wrapperClass='mb-4' label='Password' size='lg' id='Password' type='password' value={password} onChange={(e) => setPassword(e.target.value)} style={solidOutline} />
+
+                                    <MDBInput wrapperClass='mb-4' label='Confirm Password' size='lg' id='RePassword' type='password' value={RePassword} onChange={(e) => setRePassword(e.target.value)} style={solidOutline} />
 
                                     {successMessage && (
                                         <div className="alert alert-success mt-4">{successMessage}</div>
@@ -154,10 +176,8 @@ function Signup() {
                                         Create Account
                                     </MDBBtn>
                                     <div style={centerText}>
-                                        <p >Already have an account? <Link to="/Login">Login</Link></p>
+                                        <p>Already have an account? <Link to="/WardenLogin">Login</Link></p>
                                     </div>
-
-
                                 </MDBRow>
                             </MDBCardBody>
                         </MDBCard>
