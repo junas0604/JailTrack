@@ -2,33 +2,50 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { MDBContainer, MDBInput, MDBBtn, MDBCard, MDBCardBody } from "mdb-react-ui-kit";
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../config/firebase';
+import { auth, db } from '../config/firebase';
+import { collection, getDocs, where, query } from 'firebase/firestore';
 
 function WardenLogin() {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState(null);
 
     async function submit(e) {
         e.preventDefault();
         try {
-            await signInWithEmailAndPassword(auth, email, password);
-            // Handle successful login and redirect to AdminDashboard
-            console.log("Logged in successfully!");
-            navigate("/WardenDashboard");
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+
+            const collectionRef = query(collection(db, 'JailWarden'), where('uid', '==', user.uid));
+            const querySnapshot = await getDocs(collectionRef);
+
+            if (!querySnapshot.empty) {
+                const userData = querySnapshot.docs[0].data();
+                const userRank = userData.rank;
+
+                if (userRank === "Warden" || userRank === "Jail Warden") {
+                    alert("Logged in successfully!");
+                    navigate("/WardenDashboard");
+                } else {
+                    alert("You don't have permission to access the Warden Dashboard.");
+                }
+            } else {
+                alert("You don't have permission to access the Warden Dashboard.");
+            }
         } catch (error) {
-            // Handle login error, e.g., display error message.
             console.error("Error logging in:", error);
+            setError("Invalid email or password. Please try again.");
         }
     }
 
     const formStyle = {
-        fontFamily: 'Saira Condensed, sans-serif',
+        fontFamily: 'Arial',
     };
 
     return (
         <form style={formStyle}>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{ height: '80px' }}>
+          <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{ height: '80px' }}>
                 <a className="navbar-brand" href="/">
                 <img src="/JTLOGO.png" alt="login" style={{ height: "110px", width: "150px" }} />
                     <span className="ml-2" style={{marginTop: '100px',marginLeft: '-15px', fontSize: '35px' }}>JAILTRACK</span>
@@ -39,10 +56,10 @@ function WardenLogin() {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav" style={{ marginLeft: '1000px' }}>
                         <li className="nav-item">
-                            <a className="nav-link" href="/WardenLogin">Login</a>
+                            <a className="nav-link" href="/Login">Login</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/WardenSignup">Registration</a>
+                            <a className="nav-link" href="/Signup">Registration</a>
                         </li>
                     </ul>
                 </div>
@@ -53,7 +70,7 @@ function WardenLogin() {
                     backgroundImage: `url("https://www.bjmp.gov.ph/images/files/107507100_197367938408005_8328798389745902524_o.jpg")`,
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: 'cover',
-                    height: '115vh',
+                    height: '120vh',
                 }}
             >
                 <div
@@ -71,7 +88,7 @@ function WardenLogin() {
                     <div className='mask gradient-custom-3'>
                         <MDBCard className='m-5' style={{ maxWidth: '600px' }}>
                             <MDBCardBody className='px-5 text-center'>
-                                <h2 className="text-uppercase text-center mb-5" style={{ fontWeight: "bold", fontFamily: 'Saira Condensed, sans-serif' }}>Warden Login Account</h2>
+                                <h2 className="text-uppercase text-center mb-5" style={{ fontWeight: "bold" }}>Login Account</h2>
 
                                 <MDBInput
                                     wrapperClass="mb-4"
@@ -99,9 +116,11 @@ function WardenLogin() {
                                     Sign in
                                 </MDBBtn>
 
+                                {error && <p style={{ color: 'red' }}>{error}</p>}
+
                                 <div className="text-center">
                                     <p>
-                                     <Link to="/ForgotPass">Forgot Password</Link>
+                                        <Link to="/ForgotPass">Forgot Password</Link>
                                     </p>
                                 </div>
                             </MDBCardBody>

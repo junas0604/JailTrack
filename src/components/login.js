@@ -1,22 +1,42 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { MDBContainer, MDBInput, MDBBtn, MDBCard, MDBCardBody } from "mdb-react-ui-kit";
-import { signInWithEmailAndPassword } from 'firebase/auth'; // Corrected import
-import { auth } from '../config/firebase';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth, db } from '../config/firebase';
+import { collection, getDocs, where, query } from 'firebase/firestore';
 
 function Login() {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState(null);
 
     async function submit(e) {
         e.preventDefault();
         try {
-            await signInWithEmailAndPassword(auth, email, password); // Correcte    d method
-            console.log("Logged in successfully!");
-            navigate("/AdminDashboard");
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+
+            // Fetch user data from Firestore
+            const collectionRef = query(collection(db, 'JailAdmin'), where('uid', '==', user.uid));
+            const querySnapshot = await getDocs(collectionRef);
+
+            if (!querySnapshot.empty) {
+                const userData = querySnapshot.docs[0].data();
+                const userRank = userData.rank;
+
+                if (userRank === "Admin" || userRank === "Jail Admin") {
+                    alert("Logged in successfully!");
+                    navigate("/AdminDashboard");
+                } else {
+                    alert("You don't have permission to access the Admin Dashboard.");
+                }
+            } else {
+                alert("You don't have permission to access the Admin Dashboard.");
+            }
         } catch (error) {
             console.error("Error logging in:", error);
+            setError("Invalid email or password. Please try again.");
         }
     }
 
@@ -51,7 +71,7 @@ function Login() {
                     backgroundImage: `url("https://www.bjmp.gov.ph/images/files/107507100_197367938408005_8328798389745902524_o.jpg")`,
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: 'cover',
-                    height: '115vh',
+                    height: '120vh',
                 }}
             >
                 <div
@@ -97,9 +117,11 @@ function Login() {
                                     Sign in
                                 </MDBBtn>
 
+                                {error && <p style={{ color: 'red' }}>{error}</p>}
+
                                 <div className="text-center">
                                     <p>
-                                     <Link to="/ForgotPass">Forgot Password</Link>
+                                        <Link to="/ForgotPass">Forgot Password</Link>
                                     </p>
                                 </div>
                             </MDBCardBody>

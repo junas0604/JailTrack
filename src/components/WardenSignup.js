@@ -1,6 +1,5 @@
-import 'bootstrap/dist/css/bootstrap.css';
-import { Link } from "react-router-dom";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
     MDBContainer,
     MDBRow,
@@ -13,13 +12,17 @@ import { auth, db } from '../config/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { setDoc, collection, doc, getDocs, where, query } from 'firebase/firestore';
 
+function generateUID() {
+    // Generates a random 7-digit UID
+    const uid = Math.floor(1000000 + Math.random() * 9000000);
+    return uid.toString();
+}
 
 function Signup() {
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [firstName,setFirstName] = useState('');
-    const [lastName,setLastName] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [rank, setRank] = useState('');
     const [address, setAddress] = useState('');
@@ -54,12 +57,13 @@ function Signup() {
             return;
         }
 
-        try {
-            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-            const user = userCredential.user;
+        const uid = generateUID(); // Generate a random 7-digit UID
 
-            await setDoc(doc(db, "JailWarden", user.uid), {
-                uid: user.uid,
+        try {
+            await createUserWithEmailAndPassword(auth, email, password);
+       
+            await setDoc(doc(db, "JailWarden", uid), {
+                uid,
                 firstName,
                 lastName,
                 email,
@@ -67,7 +71,6 @@ function Signup() {
                 phoneNumber,
                 rank,
                 address,
-               
             });
 
             console.log('Document successfully written and user registered!');
