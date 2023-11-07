@@ -69,6 +69,7 @@ function AdminNotification() {
                         backgroundRepeat: "no-repeat",
                         backgroundSize: "cover",
                         flex: 1,
+                        position: "sticky",
                         padding: "25px",
                     }}
                 >

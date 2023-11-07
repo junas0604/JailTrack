@@ -18,7 +18,7 @@ function Login() {
             const user = userCredential.user;
 
             // Fetch user data from Firestore
-            const collectionRef = query(collection(db, 'JailAdmin'), where('uid', '==', user.uid));
+            const collectionRef = query(collection(db, 'JailAdmin'), where('email', '==', user.email));
             const querySnapshot = await getDocs(collectionRef);
 
             if (!querySnapshot.empty) {

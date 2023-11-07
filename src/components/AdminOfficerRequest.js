@@ -102,6 +102,7 @@ function AdminOfficerRequest() {
                         backgroundSize: "cover",
                         flex: 1,
                         padding: "25px",
+                        position: "sticky",
                     }}
                 >
                     <MDBContainer className="my-10 py-10">

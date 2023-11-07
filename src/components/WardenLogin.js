@@ -7,6 +7,7 @@ import { collection, getDocs, where, query } from 'firebase/firestore';
 
 function WardenLogin() {
     const navigate = useNavigate();
+    
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
@@ -17,7 +18,7 @@ function WardenLogin() {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;
 
-            const collectionRef = query(collection(db, 'JailWarden'), where('uid', '==', user.uid));
+            const collectionRef = query(collection(db, 'JailWarden'), where('email', '==', user.email));
             const querySnapshot = await getDocs(collectionRef);
 
             if (!querySnapshot.empty) {
@@ -28,10 +29,10 @@ function WardenLogin() {
                     alert("Logged in successfully!");
                     navigate("/WardenDashboard");
                 } else {
-                    alert("You don't have permission to access the Warden Dashboard.");
+                    setError("You don't have permission to access the Warden Dashboard.");
                 }
             } else {
-                alert("You don't have permission to access the Warden Dashboard.");
+                setError("You don't have permission to access the Warden Dashboard.");
             }
         } catch (error) {
             console.error("Error logging in:", error);
@@ -42,6 +43,7 @@ function WardenLogin() {
     const formStyle = {
         fontFamily: 'Arial',
     };
+
 
     return (
         <form style={formStyle}>

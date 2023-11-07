@@ -69,6 +69,7 @@ function AdminFaceRecog() {
             padding: "25px",
             display: "flex",
             flexDirection: "column",
+            position: "sticky",
           }}
         >
           <MDBContainer className="my-10 py-10">

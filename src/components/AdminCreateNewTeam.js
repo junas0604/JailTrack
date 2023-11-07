@@ -126,6 +126,7 @@ function AdminRequestSchedSystem() {
                 <div
                     className="bg-image"
                     style={{
+                        position: "sticky",
                         backgroundImage: `linear-gradient(rgba(5, 5, 5, 0.5), rgba(5, 5, 5, 0.5)), url("https://www.bjmp.gov.ph/images/files/107507100_197367938408005_8328798389745902524_o.jpg")`,
                         backgroundRepeat: "no-repeat",
                         backgroundSize: "cover",
